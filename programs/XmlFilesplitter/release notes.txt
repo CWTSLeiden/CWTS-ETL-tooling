@@ -1,0 +1,90 @@
+﻿1.0.0.8 - 20210720
+
+Bug fix:
+
+	Ampersands in geschoond CDATA velden zorgen voor ongeldige XML:
+
+	Voor opschonen:
+	<title><![CDATA[Transport by Incompressible random velocity fields: Simula- tions & Mathematical Conjectures]]></title>
+
+	Na opschonen
+	<title>Transport by Incompressible random velocity fields: Simula- tions & Mathematical Conjectures</title>
+
+	Na bug fix:
+	<title>Transport by Incompressible random velocity fields: Simula- tions &amp; Mathematical Conjectures</title>
+
+1.0.0.7 - 20210510
+
+New parameter:
+
+	Remove_original_files
+
+	If true the original files are deleted instead of renamed to .split. Default is false.
+
+1.0.0.6 - 20210420
+
+New parameters:
+
+	Include_xml_prolog
+
+	Include_xml_prolog is used for Scopus data because ReadData merges the publication XML file with a citedby.xml. If citedby.xml contains
+	the XML prolog, ReadData will render an empty file. So use false for Scopus data.
+
+Removing HTML from tags is changed. HtmlDecode is no longer used.
+
+1.0.0.5 - 20210414
+
+New parameters:
+
+	XmlFolder
+	FindFilesRecursive
+
+	The program can now process more than one files. The files have to be in the XmlFolder. Only files with .xml extension are processed.
+	If findfilerecursive is true the files with extension .xml in all subfolders will be processed. If false only files with .xml extension
+	in the given folder are processed.
+
+	The parameter splittag can now be empty or omitted. In that case the file will only be cleaned and not splitted. This is first introduced
+	for the Scopus datasource.
+
+1.0.0.4 - 20210315
+
+XML tags with mixed content can be reordered so that ReadData handles it correct.
+For Crossref data the namespaces starting with ns (e.g. ns4:) can be replaced with the correct namespace.
+See readme.txt for the use of the parameter fix_crossref_namespaces
+
+1.0.0.3 - 20210201
+
+Cleansing of the data (this documentation is also added to the readme.txt)
+
+From                To
+/t (tab)            space
+&#13; (linefeed)    space
+
+All lines are trimmed.
+
+1.0.0.2 - 20210120
+
+Added new parameter remove_namespaces.
+
+If remove_namespaces=true the namespaces will be removed from the resulting XML.
+
+If the parameter is not used or has a different value then true the namespaces will
+not be removed.
+
+1.0.0.1 - 20210120
+
+Namespaces are removed from tags (xmlns="xxx")
+bugfixes
+
+1.0.0.0 - 20201217
+
+This version is a copy of WosXmlFileSplitter and adapted to handle XML files from multiple data sources. 
+Currently it is used to split XML files from WOS and Crossref
+
+Added functions:
+Parameters can be provided in a configuration file or at the command line.
+Log and error reports are generated.
+All start tags before the split tag that are open are now closed at the end of every splitted file.
+
+New parameter:
+clean_cdata if value = true all cdata tags are cleaned.

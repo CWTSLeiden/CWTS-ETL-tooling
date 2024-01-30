@@ -1,0 +1,190 @@
+﻿4.7.0.0  - 202301
+
+	Update .NET framework 4.0 -> 4.8
+
+	Introductie nieuwe parameter: log=verbose
+
+	Default wordt een beperkte logfile aangemaakt waarin de melding per verwerkt bestand ontbreekt. Indien de 
+	parameter log=verbose wordt gebruikt zullen de meldingen per verwerkt bestand weer opgenomen worden. Dit 
+	gedrag is identiek aan de vorige versies.
+
+4.6.0.0	 - 20220228
+
+	Bug opgelost voor attributen die in de waarde de naam van een ander attribuut hebben.
+
+4.5.0.0	 - 20220117
+
+	Bug opgelost voor attributen waarbij voor- en na het = teken een spatie staat. Dit resulteerde in een lege attribuut waarde.
+
+4.4.0.0	 - 20210909
+
+	Bug voor het bepalen van een float waarde opgelost.
+	-.8014 werd niet als float herkend.
+
+4.3.0.0  - 20210824
+
+	Probleem met leading spaces voor data opgelost door de data te trimmen voordat deze naar xxx bestand weggeschreven wordt.
+
+4.2.0.0  - 20210510
+
+	Fix voor het verwerken van tags met attributen waarvan de naam van een attribuut als deel voorkomt in een andere attribuut in de 
+	tag. Hierdoor werd, afhankelijk van de volgorde van de attributen, de verkeerde waarde weggeschreven.
+
+	b.v. <assertion group_label="Article History" group_name="ArticleHistory" label="Received" name="received" order="1">2 February 1996</assertion>
+
+	Oude situatie:
+	ListRecords_J_10.1007_709.001	102	1		Article History	ArticleHistory		Article History	ArticleHistory	1	2 February 1996
+
+	Na fix:
+	ListRecords_J_10.1007_709.001	102	1		Article History	ArticleHistory		Received	received	1	2 February 1996
+
+4.1.0.0	 - 20210322
+
+	Logbestand wordt per 10000 verwerkte rijen weggeschreven (was 1000)
+	Indien showoutput dan wordt in de console de naam van het huidige bestand getoond en de starttijd van de verwerking van dit bestand.
+	Indien een bestand als parameter meegegeven i.p.v. een folder dan is de naam van het bestand in het log- en error bestand opgenomen.
+	Indien er een folder opgegeven wordt dan bevat in het geval dat er een fout optreedt de naam van het fout bestand de naam van het bestand
+	waarbij de fout opgetreden is.
+	Er is een extra controle ingebouwd op de tabel- en kolomnamen in het prg bestand. Deze mogen niet langer dan 128 karakters zijn omdat
+	ze anders niet in de database opgenomen kunnen worden.
+
+4.0.0.2	 - 20201214
+
+	Bug fixes.
+
+4.0.0.1	 - 20200923
+
+	Bug fix. Door de aanpassing op 20190911 werden kolommen die de waarde 0 bevatten altijd als
+	varchar  gekenmerkt ook als de rest van de waardes in de kolom integers ongelijk 0 zijn.
+	De waarde 0 wordt nu als integer gezien.
+	
+4.0.0.0  - 20200401
+
+	Parameter toegevoegd voor het instellen van de bcp version: bcp_version
+	Indien de parameter weggelaten word bevat het bcp commando geen versie informatie
+	Wordt de paremeter wel meegegeven dan wordt het bcp comaando uitgebreid met -V {parameter value}
+
+3.0.0.4	 - 20200304
+
+	Bug fix voor het verwijderen van &quot; tags uit de XML
+
+3.0.0.3	 - 20190911
+
+	Integers met voorloopnullen worden nu varchar velden in de tabel definitie.
+
+3.0.0.2  - 20190822
+
+	Waardes met twee of meer punten er in worden abusievelijk als float gekenmerkt. Dit is veranderd in VARCHAR.
+	Hetzelfde geldt voor waardes met twee of meer komma's.
+
+3.0.0.1	 - 20190729
+
+	De foutmelding bij ongelijke kolommen in prg file en xxx file is uitgebreid met het nummer en inhoud van de regel die de fout veroorzaakt.
+
+3.0.0.0  - 20190717
+
+	createtables.sql aangepast
+	
+		- Bij kolom wordt aangegeven of deze nullable is of niet.
+		- Correcte type aanduiding voor de kolommen.
+		- float, smallint, int en bigint voor integer kolommen toegevoegd afhankelijk van de waarde.
+		- opmaak aangepast:
+			alles in kleine letters
+			exist en drop statement op een regel ipv in een if/else structuur.
+			verdere kleine opschoningen (verwijderen ;).
+		
+	Standaard genereert de applicatie nu geen output. Wil je dit wel dan moet de parameter showoutput meegegeven worden.
+	Indien showoutput niet meegegeven wordt dan zal in bcpdata.bat achter elke bcp regel >{tabelnaam}.log toegevoegd worden. 
+	
+	Bij optreden fout wordt een foutrapport gegenereerd.
+	
+	Overal wordt nu UTF8 als karakterset gebruikt.
+	
+	De kolomgrootte wordt op max gezet indien:
+			type is varchar en maximale lengte groter dan 8000
+			type is nvarchar en maximale lengte groter dan 4000
+			
+	Bugfix voor de verstreken tijd. Indien langer dan een dag worden de verdtreken dagen ook getoond in de logfile.
+
+1.1.0.9	 - 20190311
+
+	If used with the option -unicode the option -C 65001 is added to the BCP command. (in development folder)
+	
+	Two extra parameters are added:
+	
+		server=<<server name>> used in the generated bcpdata.bat
+		database=<<database name>> used in the geberated bcpdata.bat and sql scripts.
+		
+		Both parameters are optional but when used makes sure there are no spaces around the =
+		If you use these parameters put them at the end of the statement after the other parameters.
+
+1.1.0.8  - 20180110
+
+	Bug fix: Multiple line comments are now handled correctly.
+
+1.1.0.6  - 20170807
+
+	Bug fix: Lines containing <?...?> like <?nihms ?> are ignored now. These lines are not valid XML and appear in de PubMed files. They prevent the parser
+	from working correct.
+
+1.1.0.5  - 20161110
+
+	Bug hersteld waarbij bij opgeven van een pad naar xml bestanden de bestanden niet gevonden konden worden.
+
+1.1.0.4  - 20161006
+
+	Pad uit bestandsnaam gehaald zodat ReadData in een andere directory kan staan dan de batch file van waaruit het proces wordt gestart.
+
+1.1.0.3  - 20161004
+
+	Naam logfile was gebaseerd op local date setting. Indien americaans formaat als default op de machine ingesteld is levert dit een slash
+	op in de naam waardoor readdata fout loopt.
+	Nieuw formaat log file is nu: log_yyyymmddhhmm.txt (onafhankelijk van local date setting)
+
+1.1.0.2  - 20160718
+
+	xml extensie van de filenaam in de xxx bestanden verwijderd
+
+1.1.0.1	 - 20160419
+
+	Bij het aanmaken van createdatabase.sql wordt voor niet Scopus projecten de naam van de eerste kolom gewijzigd van eid in file. 
+	In deze kolom wordt de volledige bestandsnaam opgenomen (inclusief extensie)
+	
+	Bij het aanmaken van het bestand met BCP commando's de -w parameter vervangen door -c voor niet unicode bestanden.
+
+1.1.0.0  - 20160407
+
+	Parameter toegevoegd om aan te geven of de xxx bestanden in unicode weggeschreven moeten worden of ANSI 1252.
+	Indien 3e of 4e (in geval van Scopus) parameter -unicode is dan worden de xxx bestanden in unicode weggeschreven.
+	Wordt deze parameter weggelaten of heeft deze een andere inhoud dan wordt het bestand in ANSI 1252 weggeschreven.
+	
+	vb.
+	
+	readdata.exe scopus.prg _tabs/Charactertest -scopus  				(ANSI 1252)
+	
+	readdata.exe scopus.prg _tabs/Charactertest -scopus -unicode 		(unicode)
+	
+
+1.0.0.13 - 20160406
+
+	Encoding gewijzigd van Console.OutputEncoding naar Encoding.GetEncoding(1252)
+
+1.0.0.12 - 20160405
+
+	bug met DOCTYPE opgelost.
+	In de XML staat in de tag <ref-text> !DOCTYPE. Dit zorgt ervoor dat het resultaat leeg is. In de nieuwe versie
+	gebeurt dat pas als <!DOCTYPE gevonden wordt.
+
+1.0.0.11 - 20160405
+
+	Aanpassing van 1.0.0.10 ongedaan gemaakt. Alle karakters worden nu doorgeschreven behalve
+	○ (is hex 25CB) die in een tab resulteerde bij opslaan van het xxx bestand en dus problemen
+	gaf bij de BCP.
+
+1.0.0.10 - 20160331
+
+	Non printable characters uit de tekst gehaald ivm <sup>o</sup> probleem.
+
+1.0.0.9 - 20160329
+
+	Tabs uit tekst gehaald.

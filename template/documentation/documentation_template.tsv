@@ -1,0 +1,30 @@
+table_name	column_name	description_type	description	notes
+		database	{description}	Separate paragraphs with <br><br> in database description.
+		database	{description}	Licencing information in database description.
+{table_name}	{column_name}	{description_type}	{description}	Capital letter at start of description.
+{table_name}	{column_name}	{description_type}	{description}	Period at end of description.
+{table_name}	{column_name}	{description_type}	{description} For more information: {url}.	No trailing '/' at the end of urls.
+{table_name}	{foreign}_id	column	{issuer_of_id} {foreign} identifier. See [{foreign}] table.	"See [table] table." For foreign keys.
+{table1}_{table2}		table	This table links {link_from} to {link_to}.	Describe origin tables for link-tables.
+{table_name}	{table}_id	column	{issuer_of_id} {table} identifier.	For all _id fields, describe which organization created the id.
+{table_name}	first_name	column	{person} first (given) name.	
+{table_name}	last_name	column	{person} last (family) name.	
+{table_name}	year	column	Year of {...}. In the {...} calendar and all Common Era.	Describe the standard of the date.
+{table_name}	date	column	Date of {...}. In the format {YYYY-MM-DD}.	Describe the format of the date.
+{table_name}	{column_name}	column	ISO {iso_standard} region code.	"ISO-standard {standard} alpha-{n} code" for iso codes.
+{table_name}		table	Each row in this table represents a {content_of_table}.	
+{table_name}	isbn	column	Print International Standard Book Number.	Unabbreviate acronyms where possible.
+{table_name}	{foreign}_id	column	{issuer_of_id} {foreign} identifier. See [{foreign}] table.	
+{table_name}	{column}_seq	column	{Column} sequence number.	
+{table_name}	{foreign_db}_id	column	{foreign_db} ID of the organization. See {foreign_db} database. For more information: {url}	Link to external databases.
+{table_name}	is_{boolean}	column	{table} is {boolean description} (1 = true, 0 = false).	"(1 = {is_true}, 0 = {is_false})" for bit fields.
+	
+
+
+
+
+
+
+
+
+

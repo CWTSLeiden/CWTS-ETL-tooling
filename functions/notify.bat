@@ -1,0 +1,68 @@
+:: =======================================================================================
+:: Main
+::: Notify a user about a database process via email or optionally via a Teams channel.
+
+:: Global variables
+::: db_owner
+::: (optional) teams_channel_email
+::: (optional) notifications
+
+:: Input variables
+::: 1. db_name: name of the database that that the operation is linked to.
+::: 2. process_name: name of the process that the notification is about.
+::: 3. (optional) body: message to be sent along with the notification.
+
+:: Executables
+::: powershell_exe
+:: =======================================================================================
+setlocal
+
+set db_name=%~1
+set process_name=%~2
+set body=%~3
+
+if not "%notifications%" == "true" (
+    echo E-mail notifications are off
+    goto:eof
+)
+
+call :check_variables 3 %*
+
+echo %db_name% - Notifying %db_owner% about %process_name%
+
+:: Notify db_owner
+%powershell_exe% ". '%functions_folder%\notify\notify.ps1' -db '%db_name%' -user '%db_owner%' -process '%process_name%' %teams_channel_email-teams_channel_email% -body '%body%'"
+
+endlocal
+goto:eof
+:: =======================================================================================
+
+
+:: =======================================================================================
+:check_variables
+:: =======================================================================================
+
+:: Set functions_folder to location of this script
+set functions_folder=%~dp0
+:: set program_folder to relative location of this script
+set programs_folder=%~dp0\..\programs
+
+:: get executable paths
+call %programs_folder%\executables.bat
+
+:: Check number of input variables
+call %functions_folder%\variable.bat :check_parameters %*
+
+:: Validate global variables
+call %functions_folder%\variable.bat :check_variable db_owner
+
+:: Validate input variables
+call %functions_folder%\variable.bat :check_variable db_name
+call %functions_folder%\variable.bat :check_variable process_name
+
+if defined teams_channel_email (
+    set teams_channel_email-teams_channel_email=-teams_channel_email %teams_channel_email%
+)
+
+goto:eof
+:: =======================================================================================

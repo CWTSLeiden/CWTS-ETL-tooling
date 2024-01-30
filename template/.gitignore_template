@@ -1,0 +1,8 @@
+/data/*
+!/data/validation/
+/data/validation/*.xlsx
+
+**/log/
+**/process_folder/
+**/process/
+**/temp
