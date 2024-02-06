@@ -1,3 +1,4 @@
+@echo off
 :: =======================================================================================
 :: Main
 ::: Use xml_analyzer_exe (-mode analyse) to analyse xml files.

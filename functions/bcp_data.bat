@@ -1,3 +1,4 @@
+@echo off
 :: =======================================================================================
 :: Main
 ::: Use BCP to load all parsed data into the database by calling a bcpdata.bat script

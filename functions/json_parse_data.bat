@@ -1,3 +1,4 @@
+@echo off
 :: =======================================================================================
 :: Main
 ::: Use json parser to parse raw json files and generate the .bat and .sql scripts

@@ -1,3 +1,4 @@
+@echo off
 :: =======================================================================================
 :: Main
 ::: Use the xml file splitter to split xml files into manageable chunks.

@@ -1,3 +1,4 @@
+@echo off
 :: =======================================================================================
 :: Main
 ::: Use readdata to parse raw xml files to a flat-file format and generate the SQL and BCP
