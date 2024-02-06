@@ -57,7 +57,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `split_process_months`                 | v1.0.0  |
 | `split_process_numbers`                | v0.1.0  |
 | `unify_create_tables`                  | v1.0.0  |
-| `unzip_file`                           | v2.1.0  |
+| `unzip_file`                           | v2.1.1  |
 | `unzip_folder`                         | v1.0.0  |
 | `validate_database`                    | v3.0.0  |
 | `validate_database_compare`            | v1.0.0  |
@@ -267,6 +267,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### unzip_file
 
+- v2.1.1
+    - create `target_folder`
 - v2.1.0
     - add optional global parameter 'zip_args'
     - replace 7zip '-y' parameter with '-aou' to not ever overwrite conflicting files.

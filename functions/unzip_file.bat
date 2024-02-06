@@ -63,7 +63,7 @@ call %functions_folder%\variable.bat :check_file zip_exe
 :: Validate input variables
 call %functions_folder%\variable.bat :check_file     source_file
 call %functions_folder%\variable.bat :check_variable source_file_name_ext
-call %functions_folder%\variable.bat :check_folder   target_folder
+call %functions_folder%\variable.bat :create_folder  target_folder
 call %functions_folder%\variable.bat :create_folder  zip_log_folder
 call %functions_folder%\variable.bat :check_variable keep_folder_structure
 
