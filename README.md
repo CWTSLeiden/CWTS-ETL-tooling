@@ -65,8 +65,9 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `validate_data_types_compare`          | v1.0.0  |
 | `variable`                             | v1.0.0  |
 | `wait`                                 | v2.0.0  |
-| `xml_analyze_data`                     | v2.0.0  |
-| `xml_generate_prg`                     | v1.0.0  |
+| `xml_analyze_data`                     | v2.1.0  |
+| `xml_analyze_data_unify`               | v1.0.0  |
+| `xml_generate_prg`                     | v2.0.0  |
 | `xml_parse_data`                       | v1.0.2  |
 | `xml_split_data`                       | v1.0.2  |
 | `zip_folder`                           | v2.0.0  |
@@ -314,7 +315,18 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### xml_analyze_data
 
+- v2.1.0
+    - rename variables and modify documentation for xml_analyzer 0.2.0
+    - `frequency_` prefix removed
+
+### xml_analyze_data_unify
+
 ### xml_generate_prg
+
+- v2.0.0
+    - changes for xml_analyzer 0.2.0
+    - now takes a single input file
+    - `program_output_folder` and `program_output_file_name` replaced by `output_file`
 
 ### xml_parse_data
 

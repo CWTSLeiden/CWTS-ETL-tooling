@@ -1,15 +1,13 @@
 @echo off
 :: =======================================================================================
 :: Main
-::: Use xml_analyzer_exe (-mode analyze) to analyse xml files.
-::: As this is usually called as an asynchronous process using `start` this script
-::: sends a signal when the process has finished.
+::: Use xml_analyzer_exe (-mode unify) to unify results of the analyze step into a single file
 
 :: Input variables
 ::: 1. db_name:           Name of the database.
 ::: 2. xml_split_element: Tag on which the XML should be split, format: {Namespace schema location}tag_name
 :::                       Example: {http://www.openarchives.org/OAI/2.0/}record
-::: 3. input_folder:      Folder containing files to analyze.
+::: 3. xml_data_folder:   Folder containing files to analyse.
 :::                       (usually identical to process_folder)
 ::: 4. output_folder:     Target folder for the text files with the XML paths.
 ::: 5. output_file_name:  Filename for the output file. (extension is optional and ignored)
@@ -20,23 +18,19 @@
 setlocal
 
 set db_name=%~1
-set xml_split_element=%~2
-set input_folder=%~3
-set output_folder=%~4
-set output_file_name=%~n5
+set input_folder=%~2
+set output_file=%~3
+set output_file_name=%~n3
+set output_folder=%~dp3
 
-call :check_variables 5 %*
+call :check_variables 3 %*
 
-echo %db_name% - analyze XML data
+echo %db_name% - Unify xml paths
 %xml_analyzer_exe% ^
-    -mode analyze ^
-    -split_element %xml_split_element% ^
+    -mode unify ^
     -file_dir %input_folder% ^
     -output_dir %output_folder% ^
     -output_file %output_file_name%.txt
-
-:: Send signal to waiting processes
-call %functions_folder%\wait.bat :send %~f0
 
 endlocal
 goto:eof
@@ -63,7 +57,6 @@ call %functions_folder%\variable.bat :check_file        xml_analyzer_exe
 
 :: Validate input variables
 call %functions_folder%\variable.bat :check_variable    db_name
-call %functions_folder%\variable.bat :check_variable    xml_split_element
 call %functions_folder%\variable.bat :check_folder      input_folder
 call %functions_folder%\variable.bat :create_folder     output_folder
 call %functions_folder%\variable.bat :check_variable    output_file_name
