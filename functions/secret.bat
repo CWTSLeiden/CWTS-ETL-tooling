@@ -19,15 +19,8 @@ set _file_extension=%~x1
 set _file_name=%~n1
 set _var=%~2
 
-if not defined _file (
-    call :find_secrets_file
-)
-if not defined _file (
-    if "%verbose%" == "true" (
-        echo verbose - No secrets file found
-    )
-    goto:eof
-)
+call :check_variables
+if not defined _file (goto:eof)
 
 if "%verbose%" == "true" (
     echo verbose - Read secrets from %_file%
@@ -104,4 +97,24 @@ if %n% LEQ 0 (
     goto:eof
 )
 goto:loop_start
+:: =======================================================================================
+
+
+:: =======================================================================================
+:check_variables
+:: =======================================================================================
+
+:: Set functions_folder to location of this script
+set functions_folder=%~dp0
+
+if not defined _file (
+    call :find_secrets_file
+)
+if not defined _file (
+    if "%verbose%" == "true" (
+        echo verbose - No secrets file found
+    )
+)
+
+goto:eof
 :: =======================================================================================
