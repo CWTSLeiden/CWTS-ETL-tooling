@@ -10,7 +10,6 @@
 :: Input variables
 ::: 1. db_name: name of the database that that the operation is linked to.
 ::: 2. process_name: name of the process that the notification is about.
-::: 3. (optional) body: message to be sent along with the notification.
 
 :: Executables
 ::: powershell_exe
@@ -19,24 +18,20 @@ setlocal
 
 set db_name=%~1
 set process_name=%~2
-set body=%~3
 
 if not "%notifications%" == "true" (
     echo E-mail notifications are off
     goto:eof
 )
 
-call :check_variables 3 %*
-
-echo %db_name% - Notifying %db_owner% about %process_name%
+call :check_variables 2 %*
 
 :: Notify db_owner
-%powershell_exe% ". '%functions_folder%\notify\notify.ps1' -db '%db_name%' -user '%db_owner%' -process '%process_name%' %teams_channel_email-teams_channel_email% -body '%body%'"
 call %powershell_exe% "& %functions_folder%\notify\notify.ps1" ^
     "-db '%db_name%'" ^
     "-user '%db_owner%'" ^
     "-process '%process_name%'" ^
-    "-body '%body%'" ^
+    "-only_on_error" ^
     "%teams_channel_email_arg%" ^
     "%verbose_arg%"
 

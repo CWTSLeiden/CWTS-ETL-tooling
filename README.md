@@ -46,6 +46,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `load_database`                        | v1.0.0  |
 | `log_runtime`                          | v0.0.1  |
 | `notify`                               | v1.0.0  |
+| `notify_errors`                        | v0.1.0  |
 | `run_sql_folder`                       | v1.0.0  |
 | `run_sql_query`                        | dev     |
 | `run_sql_script`                       | v1.0.1  |
@@ -222,6 +223,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### log_runtime
 
 ### notify
+
+### notify_errors
 
 ### run_sql_folder
 

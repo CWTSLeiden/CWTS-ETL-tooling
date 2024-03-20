@@ -2,11 +2,12 @@
 # %powershell_exe% ". '%path_to_this_script%' -db '%db_name%' -user '%db_owner% -process %~n0 -body 'Process finished'"
 
 param (
-    $db,
-    $user,
-    $process,
-    $body,
-    $teams_channel_email
+    [string]$db,
+    [string]$user,
+    [string]$process,
+    [string]$body,
+    [string]$teams_channel_email,
+    [switch]$only_on_error
 )
 
 $name = ($user -split '\\')[-1]
@@ -28,6 +29,10 @@ if ($LastExitCode -eq 0) {
 } else {
     $priority = "high"
     $body = "$body<br><br><pre>$errors</pre>"
+}
+if (($priority -ne "high") -and $only_on_error) {
+    Write-Verbose "No errors, not sending notification"
+    return $False
 }
 
 $smtp = "smtp.leidenuniv.nl"
