@@ -33,12 +33,10 @@ $tables = ($newtable.Keys + $oldtable.Keys) | Sort-Object | Get-Unique
 # Loop over the hash tables and construct a table with the comparison data
 $comparison= @()
 foreach ($table in $tables) {
-    $oldtype = if ($null -eq $oldtable[$table]) { $null } else { $oldtable[$table][0] }
-    $newtype= if ($null -eq $newtable[$table]) { $null } else { $newtable[$table][0] }
-    $oldlength = if ($null -eq $oldtable[$table]) { $null } else { [int]$oldtable[$table][1] }
-    $newlength = if ($null -eq $newtable[$table]) { $null } else { [int]$newtable[$table][1] }
-    if (-not (($oldtype -eq $newtype) -and ($oldlength -eq $newlength))) {
-        $comparison += [pscustomobject]@{Table=$table;OldType=$oldtype; NewType=$oldtype; OldLength=$oldlength; NewLength=$newlength}
+    $oldtype, $oldlength = $oldtable[$table]
+    $newtype, $newlength = $newtable[$table]
+    if (($oldtype -ne $newtype) -or ($oldlength -ne $newlength)) {
+        $comparison += [pscustomobject]@{Table=$table; OldType=$oldtype; NewType=$newtype; OldLength=$oldlength; NewLength=$newlength}
     }
 }
 
