@@ -31,7 +31,6 @@ call :check_variables 3 %*
 echo %db_name% - Notifying %db_owner% about %process_name%
 
 :: Notify db_owner
-%powershell_exe% ". '%functions_folder%\notify\notify.ps1' -db '%db_name%' -user '%db_owner%' -process '%process_name%' %teams_channel_email-teams_channel_email% -body '%body%'"
 call %powershell_exe% "& %functions_folder%\notify\notify.ps1" ^
     "-db '%db_name%'" ^
     "-user '%db_owner%'" ^
