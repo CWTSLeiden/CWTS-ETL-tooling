@@ -52,6 +52,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `run_sql_script`                       | v1.0.1  |
 | `secret`                               | v1.0.0  |
 | `set_database_file_limits`             | v1.1.0  |
+| `set_database_owner`                   | dev     |
 | `shrink_database`                      | v1.0.0  |
 | `split_large_files`                    | v1.0.0  |
 | `split_process_files`                  | v1.0.1  |
@@ -241,6 +242,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 - v1.1.0
     - add two additional optional parameters `%mdf_file_limit%` and `%ldf_file_limit%`. If called without these parameters, the function will set the limits automatically based on file-size (previous behavior). If called with these parameters, explicit file-limits will be set.
+
+### set_database_owner
 
 ### shrink_database
 
