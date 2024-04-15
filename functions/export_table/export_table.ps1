@@ -24,7 +24,7 @@ function ParseByType {
 }
 
 function Export-Tsv {
-    # TODO: Much too slow
+    # No Powershell7 needed, but much too slow
     [CmdletBinding()]
     param(
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)] [PSCustomObject[]]$Table,
@@ -50,7 +50,7 @@ function Export-Tsv {
     }
 }
 
-# TODO: Needs Powershell 7+
+# Requires Powershell 7
 Invoke-SqlCmd `
     -TrustServerCertificate `
     -Server $server `
@@ -58,4 +58,3 @@ Invoke-SqlCmd `
     -InputFile $input_file `
     -Variable @("table_name=${table_name}") `
     | Export-Csv -Path $output_file -Encoding $Encoding -NoTypeInformation -UseQuotes "AsNeeded" -Delimiter $Separator -NoHeader:$NoHeader
-#    | Export-Tsv -Path $output_file
