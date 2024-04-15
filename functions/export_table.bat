@@ -25,12 +25,15 @@ set log_folder=%~4
 
 call :check_variables 4 %*
 
+echo Export table %db_name%..%table_name% (%table_query_file%)
+
 call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
     "-server %server%" ^
     "-db_name %db_name%" ^
     "-table_name %table_name%" ^
     "-input_file %table_query_file%" ^
-    "-output_file %output_file%"
+    "-output_file %output_file%" ^
+    "%verbose_arg%"
 
 if "%export_table_include_types%" == "true" (
     call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
@@ -38,7 +41,8 @@ if "%export_table_include_types%" == "true" (
         "-db_name %db_name%" ^
         "-table_name %table_name%" ^
         "-input_file %functions_folder%\export_table\export_types.sql" ^
-        "-output_file %types_file%"
+        "-output_file %types_file%" ^
+        "%verbose_arg%"
 )
 
 endlocal
@@ -80,6 +84,9 @@ if exist %table_or_file% (
 ) else (
     set table_name=%table_or_file%
     set table_query_file=%functions_folder%\export_table\export_table.sql
+)
+if "%verbose%" == "true" (
+   set verbose_arg=-Verbose
 )
 
 call %functions_folder%\variable.bat :check_variable table_name
