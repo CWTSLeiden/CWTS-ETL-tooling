@@ -36,6 +36,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `credentials`                          | dev     |
 | `curl_download_file`                   | v1.3.0  |
 | `executables`                          | v1.1.1  |
+| `export_database`                      | dev     |
 | `export_table`                         | dev     |
 | `extract_noun_phrases`                 | v1.0.0  |
 | `folder`                               | v1.0.7  |
@@ -169,7 +170,9 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 - v1.1.0
     - rename `%read_data_exe%` to `%readdata_exe%`
 
-### export_lable
+### export_database
+
+### export_table
 
 ### extract_noun_phrases
 
