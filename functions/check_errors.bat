@@ -35,9 +35,11 @@ set error_string=---------------------------------------------------------------
 
 call :check_errors "Backup" "%backup_log_folder%" error
 call :check_errors "BCP" "%bcp_log_folder%" error
+call :check_errors "Bigquery" "%bigquery_log_folder%" error
 call :check_errors "Classification" "%classification_log_folder%" error
 call :check_errors "Documentatie Generator" "%database_documentatie_generator_log_folder%" error
 call :check_errors "Download" "%download_log_folder%" error
+call :check_errors "Export" "%export_log_folder%" log
 call :check_errors "Json Parser" "%json_parser_log_folder%" error
 call :check_errors "LargeFileSplitter" "%large_file_splitter_log_folder%" error
 call :check_errors "NPExtractorDB" "%noun_phrase_extractor_log_folder%" error
