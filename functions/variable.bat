@@ -111,9 +111,11 @@ set _value=%~2
 if not defined %_var% (
     set %_var%=%_value%
 )
+setlocal enabledelayedexpansion
 if "%verbose%" == "true" (
     echo verbose - Variable value: %_var%=!%_var%!
 )
+endlocal
 goto:eof
 :: =======================================================================================
 
