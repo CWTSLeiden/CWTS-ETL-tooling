@@ -51,6 +51,8 @@ function Export-Tsv {
 }
 
 # Requires Powershell 7
+Write-Verbose "Export table: ${table}"
+Write-Verbose "Using export script: ${input_file}"
 Invoke-SqlCmd `
     -TrustServerCertificate `
     -Server $server `

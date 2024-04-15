@@ -29,11 +29,13 @@ call :check_variables 4 %*
 
 set sqlcmd_exe=sqlcmd -S %server% -E -m 1 -y0
 
+echo Export database %db_name%
+
 set "table_query=select table_name from information_schema.tables"
 call %sqlcmd_exe% -Q "set nocount on; %table_query%" -o "%output_folder%\table_export.conf"
 if exist "%export_sql_folder%" (
     for /f %%f in ('dir /b /ON "%export_sql_folder%\*.sql"') do (
-        call :export_table %%~nf %export_sql_folder%\%%f
+        call :export_table %export_sql_folder%\%%f
     )
 )
 for /f %%t in (%output_folder%\table_export.conf) do (
