@@ -37,13 +37,14 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `curl_download_file`                   | v1.3.0  |
 | `executables`                          | v1.1.1  |
 | `extract_noun_phrases`                 | v1.0.0  |
-| `folder`                               | v1.0.6  |
+| `folder`                               | v1.0.7  |
 | `get_datetime`                         | v1.0.0  |
 | `generate_database_documentation`      | v0.1.0  |
 | `grant_access_cwts_group`              | v2.0.0  |
 | `json_analyze_data`                    | v1.0.0  |
 | `json_parse_data`                      | v1.1.1  |
 | `load_database`                        | v1.0.0  |
+| `load_bigquery_table`                  | dev     |
 | `log_runtime`                          | v0.0.1  |
 | `notify`                               | v1.0.0  |
 | `notify_errors`                        | v0.1.0  |
@@ -173,6 +174,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### folder
 
+- v1.0.7
+    - add `%bigquery_log_folder%`
 - v1.0.6
     - add `%publicationclassification_log_folder%`
     - add `%publicationclassificationlabeling_log_folder%`
@@ -208,6 +211,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Add wait.bat :sleep_subprocess
 - v1.0.0
     - The value of `%erase_previous%` should be set to `erase_previous` instead of `true`
+
+### load_bigquery_table
 
 ### load_database
 

@@ -84,6 +84,7 @@ call :set_if_not_defined log_folder %root_folder%\log
         call :set_if_not_defined relational_bcp_log_folder %bcp_log_folder%\relational
         call :set_if_not_defined json_bcp_log_folder %bcp_log_folder%\json
         call :set_if_not_defined xml_bcp_log_folder %bcp_log_folder%\xml
+    call :set_if_not_defined bigquery_log_folder %log_folder%\bigquery
     call :set_if_not_defined classification_log_folder %log_folder%\classification
     call :set_if_not_defined publicationclassification_log_folder %log_folder%\publicationclassification
     call :set_if_not_defined publicationclassificationlabeling_log_folder %log_folder%\publicationclassificationlabeling
