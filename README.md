@@ -1,5 +1,5 @@
 # CWTS ETL tooling
-Version: 8.0.0
+Version: 8.1.0
 
 ## Description
 
@@ -25,7 +25,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `archive_pipeline`                     | v1.0.0  |
 | `aws_download_folder`                  | v1.0.0  |
 | `bcp_data`                             | v1.0.2  |
-| `check_errors`                         | v0.3.2  |
+| `check_errors`                         | v0.3.3  |
 | `classification_create_classification` | v1.0.0  |
 | `classification_create_labeling`       | v1.0.0  |
 | `classification_create_vosviewer_maps` | v1.0.0  |
@@ -36,8 +36,10 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `credentials`                          | dev     |
 | `curl_download_file`                   | v1.3.0  |
 | `executables`                          | v1.1.1  |
+| `export_database`                      | dev     |
+| `export_table`                         | dev     |
 | `extract_noun_phrases`                 | v1.0.0  |
-| `folder`                               | v1.0.6  |
+| `folder`                               | v1.0.7  |
 | `get_datetime`                         | v1.0.0  |
 | `generate_database_documentation`      | v0.1.0  |
 | `grant_access_cwts_group`              | v2.0.0  |
@@ -90,6 +92,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Add wait.bat :sleep_subprocess
 
 ### check_errors
+- v0.3.4
+    - `%export_log_folder%` added for export_table function
 - v0.3.3
     - `%backup_log_folder%` added for backup-tooling
 - v0.3.2
@@ -165,6 +169,10 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 - v1.1.0
     - rename `%read_data_exe%` to `%readdata_exe%`
 
+### export_database
+
+### export_table
+
 ### extract_noun_phrases
 
 - v1.0.0
@@ -173,6 +181,9 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### folder
 
+- v1.0.7
+    - add `%export_data_folder%`
+    - add `%export_log_folder%`
 - v1.0.6
     - add `%publicationclassification_log_folder%`
     - add `%publicationclassificationlabeling_log_folder%`
