@@ -46,7 +46,6 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `json_analyze_data`                    | v1.0.0  |
 | `json_parse_data`                      | v1.1.1  |
 | `load_database`                        | v1.0.0  |
-| `load_bigquery_table`                  | dev     |
 | `log_runtime`                          | v0.0.1  |
 | `notify`                               | v1.0.0  |
 | `notify_errors`                        | v0.1.0  |
@@ -185,7 +184,6 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 - v1.0.7
     - add `%export_data_folder%`
     - add `%export_log_folder%`
-    - add `%bigquery_log_folder%`
 - v1.0.6
     - add `%publicationclassification_log_folder%`
     - add `%publicationclassificationlabeling_log_folder%`
@@ -221,8 +219,6 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Add wait.bat :sleep_subprocess
 - v1.0.0
     - The value of `%erase_previous%` should be set to `erase_previous` instead of `true`
-
-### load_bigquery_table
 
 ### load_database
 
