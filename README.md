@@ -1,5 +1,5 @@
 # CWTS ETL tooling
-Version: 8.0.0
+Version: 8.0.1
 
 ## Description
 
@@ -388,7 +388,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | Curl.exe                              | 7.76.1     |
 | DatabaseDocumentatieGenerator.exe     | 2.1.0.0    |
 | JsonAnalyzer.exe                      | 1.1.0.0    |
-| JsonParser.exe                        | 1.24.0.0   |
+| JsonParser.exe                        | 1.33.0.0   |
 | LargeFileSplitter.exe                 | 1.0.0.0    |
 | NPExtractorDB.jar                     | 21-07-2021 |
 | ReadData.exe                          | 4.7.0.0    |

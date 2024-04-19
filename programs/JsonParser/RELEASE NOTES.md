@@ -10,31 +10,237 @@
 |dimensionsfundergroups|format_1|
 |dimensionsgrants|format_6|
 |dimensionsresearchgroups|format_1|
+|dimensionsorganisations|2023_jul|
 |grid|2020jun, 2020dec|
 |overton|2020jul, 2021may, 2023may|
 |unpaywall|2020apr, 2020oct|
 |datacitedois|2020aug, 2021aug|
 |dataciteclients|2021nov|
 |dataciteproviders|2021nov|
-|ror|2020oct, version8|
+|ror|2020oct, version8, 2024apr|
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
 |crossrefeventdata|2021aug|
-|openalexworks|2022jul, 2023feb
-|openalexauthors|2022jul, 2023feb|
-|openalexinstitutions|2022jul, 2023feb|
+|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
+|openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
+|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov|
 |openalexvenues|2022jul|
-|openalexconcepts|2022jul, 2023feb|
-|openalexsources|2023feb|
-|openalexpublishers|2023feb|
+|openalexconcepts|2022jul, 2023feb, 2023jul|
+|openalexsources|2023feb, 2023jul|
+|openalexpublishers|2023feb, 2023jul|
+|openalexfunders|2023jul|
+|openalextopics|2024mar|
+|openalexdomains|2024mar|
+|openalexfields|2024mar|
+|openalexsubfields|2024mar|
 |twitter|2022jul|
+|bso|2023sep|
 
 OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
 
+### 1.33.0.0
+
+- Nieuwe velden
+    - admin.created.date
+    - admin.created.schema_version
+    - admin.last_modified.date
+    - admin.last_modified.schema_version
+    - domains[seq]
+    - external_ids[seq].all[seq]
+    - external_ids[seq].preferred
+    - external_ids[seq].type
+    - links[seq].type
+    - links[seq].value
+	- [seq].locations[seq].geonames_details.country_code
+    - locations[seq].geonames_details.country_name
+    - locations[seq].geonames_details.lat
+    - locations[seq].geonames_details.lng
+    - locations[seq].geonames_details.name
+    - locations[seq].geonames_id
+    - names[seq].lang
+    - names[seq].types[seq]
+    - names[seq].value
+
+- Verwijderde velden
+    - acronyms[seq]
+    - addresses[seq].city
+    - addresses[seq].country_geonames_id
+    - addresses[seq].geonames_city.city
+    - addresses[seq].geonames_city.geonames_admin1.ascii_name
+    - addresses[seq].geonames_city.geonames_admin1.code
+    - addresses[seq].geonames_city.geonames_admin1.id
+    - addresses[seq].geonames_city.geonames_admin1.name
+    - addresses[seq].geonames_city.geonames_admin2.ascii_name
+    - addresses[seq].geonames_city.geonames_admin2.code
+    - addresses[seq].geonames_city.geonames_admin2.id
+    - addresses[seq].geonames_city.geonames_admin2.name
+    - addresses[seq].geonames_city.id
+    - addresses[seq].geonames_city.license.attribution
+    - addresses[seq].geonames_city.license.license
+    - addresses[seq].geonames_city.nuts_level1.code
+    - addresses[seq].geonames_city.nuts_level1.name
+    - addresses[seq].geonames_city.nuts_level2.code
+    - addresses[seq].geonames_city.nuts_level2.name
+    - addresses[seq].geonames_city.nuts_level3.code
+    - addresses[seq].geonames_city.nuts_level3.name
+    - addresses[seq].lat
+    - addresses[seq].line
+    - addresses[seq].lng
+    - addresses[seq].postcode
+    - addresses[seq].primary
+    - addresses[seq].state
+    - addresses[seq].state_code
+    - aliases[seq]
+    - country.country_code
+    - country.country_name
+    - email_address
+    - external_ids.CNRS.all[seq]
+    - external_ids.CNRS.preferred
+    - external_ids.FundRef.all[seq]
+    - external_ids.FundRef.preferred
+    - external_ids.GRID.all
+    - external_ids.GRID.preferred
+    - external_ids.HESA.all[seq]
+    - external_ids.HESA.preferred
+    - external_ids.ISNI.all[seq]
+    - external_ids.ISNI.preferred
+    - external_ids.OrgRef.all[seq]
+    - external_ids.OrgRef.preferred
+    - external_ids.UCAS.all[seq]
+    - external_ids.UCAS.preferred
+    - external_ids.UKPRN.all[seq]
+    - external_ids.UKPRN.preferred
+    - external_ids.Wikidata.all[seq]
+    - external_ids.Wikidata.preferred
+    - labels[seq].iso639
+    - labels[seq].label
+    - links[seq]
+    - name
+    - wikipedia_url
+
+### 1.32.0.0
+
+- Nieuwe velden
+    - authors.affiliations[seq].institution.id
+    - authors.affiliations[seq].years[seq]
+    - authors.last_known_institutions[seq].id
+    - domains.cited_by_count
+    - domains.created_date
+    - domains.description
+    - domains.display_name
+    - domains.display_name_alternatives[seq]
+    - domains.fields[seq].id
+    - domains.id
+    - domains.ids.wikidata
+    - domains.ids.wikipedia
+    - domains.siblings[seq].id
+    - domains.updated_date
+    - domains.works_count
+	- fields.cited_by_count
+	- fields.created_date
+	- fields.description
+	- fields.display_name
+	- fields.display_name_alternatives[seq]
+	- fields.domain.id
+	- fields.id
+	- fields.ids.wikidata
+	- fields.ids.wikipedia
+	- fields.siblings[seq].id
+	- fields.subfields[seq].id
+	- fields.updated_date
+	- fields.works_count
+	- subfields.cited_by_count
+	- subfields.created_date
+	- subfields.description
+	- subfields.display_name
+	- subfields.display_name_alternatives[seq]
+	- subfields.domain.id
+	- subfields.id
+	- subfields.ids.wikidata
+	- subfields.ids.wikipedia
+	- subfields.siblings[seq].id
+	- subfields.topics[seq].id
+	- subfields.updated_date
+	- subfields.works_count
+	- topics.cited_by_count
+	- topics.created_date
+	- topics.description
+	- topics.display_name
+	- topics.domain.id
+	- topics.field.id
+	- topics.id
+	- topics.ids.wikipedia
+	- topics.keywords[seq]
+	- topics.siblings[seq].id
+	- topics.subfield.id
+	- topics.updated_date
+	- topics.works_count
+    - works.domains[seq].id
+    - works.fields[seq].id
+    - works.indexed_in[seq]
+    - works.primary_topic.id
+	- works.primary_topic.score
+    - works.subfields[seq].id
+    - works.topics[seq].id
+    - works.topics[seq].score
+    - works.topics_count
+
+### 1.31.0.0
+
+- Nieuwe velden
+    - institutions.lineage
+    - works.authorships[seq].raw_author_name
+    - works.countries_distinct_count
+    - works.fulltext_origin
+    - works.has_fulltext
+	- works.keywords[seq].keyword
+    - works.keywords[seq].score
+
+- Verwijderde velden
+    - works.is_oa
+	- works.host_venue.display_name
+    - authors.ids.mag
+
+### 1.30.0.0
+
+- implemetatie bso 2023sep model (French Open Science Monitor)
+
+### 1.29.0.0
+
+- Aanpassen OpenAlex model (works) n.a.v. data download 2023aug.
+
+### 1.28.0.0
+
+- Bug fixing OpenAlex model
+    - Initiele table prefix funder toegevoegd
+	- Naamgeving aangepast.
+
+### 1.27.0.0
+
+- Implementatie van Dimensions organisations model (2023_jul)
+
+### 1.26.0.0
+
+- OpenAlex modellen onder regie van Nees aangepast. Zie ook de documentatie in Teams.
+
+### 1.25.0.0
+
+#### Models
+
+- implementatie 2023jul voor OpenAlex authors (update)
+- implementatie 2023jul voor OpenAlex concepts (update)
+- implementatie 2023jul voor OpenAlex funders (nieuw)
+- implementatie 2023jul voor OpenAlex institutions (update)
+- implementatie 2023jul voor OpenAlex publishers (update)
+- implementatie 2023jul voor OpenAlex sources (update)
+- implementatie 2023jul voor OpenAlex works (update)
+
 ### 1.24.0.0
+
+#### Models
 
 - implementatie format_9 voor Dimensions publicaties
 - implementatie format_1 voor Dimensions fundergroups
