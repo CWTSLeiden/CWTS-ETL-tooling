@@ -31,6 +31,7 @@ call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
     "-table_name %table_name%" ^
     "-input_file %table_query_file%" ^
     "-output_file %output_file%" ^
+    "-log_folder %log_folder%" ^
     "%no_header_arg%" ^
     "%verbose_arg%"
 
@@ -41,6 +42,7 @@ if "%export_table_include_types%" == "true" (
         "-table_name %table_name%" ^
         "-input_file %functions_folder%\export_table\export_types.sql" ^
         "-output_file %types_file%" ^
+        "-log_folder %log_folder%" ^
         "%verbose_arg%"
 )
 
