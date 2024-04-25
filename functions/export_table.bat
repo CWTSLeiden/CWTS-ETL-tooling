@@ -10,7 +10,7 @@
 :: input variables
 ::: 1. db_name:        name of the database to query
 ::: 2. table_or_file:  name of the table to export
-:::                    or a query file with the sql statemnt that outputs a single table
+:::                    or a query file with the sql statement that outputs a single table
 ::: 3. output_folder:  folder where the output files should be placed
 ::: 4. log_folder:     log folder for this function
 :: =======================================================================================
@@ -19,8 +19,6 @@ setlocal
 set db_name=%~1
 set table_or_file=%~2
 set output_folder=%~3
-set output_file=%output_folder%\%table_name%.tsv
-set types_file=%output_folder%\%table_name%_types.tsv
 set log_folder=%~4
 
 call :check_variables 4 %*
@@ -33,6 +31,7 @@ call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
     "-table_name %table_name%" ^
     "-input_file %table_query_file%" ^
     "-output_file %output_file%" ^
+    "%no_header_arg%" ^
     "%verbose_arg%"
 
 if "%export_table_include_types%" == "true" (
@@ -71,7 +70,6 @@ call %functions_folder%\variable.bat :check_variable server
 :: validate input variables
 call %functions_folder%\variable.bat :check_variable   db_name
 call %functions_folder%\variable.bat :check_variable   table_or_file
-call %functions_folder%\variable.bat :check_variable   output_file
 call %functions_folder%\variable.bat :create_folder    output_folder
 call %functions_folder%\variable.bat :create_folder    log_folder
 call %functions_folder%\variable.bat :default_variable export_table_include_header false
@@ -81,16 +79,24 @@ if exist %table_or_file% (
     set export_table_include_types=false
     set table_query_file=%table_or_file%
     for %%f in (%table_or_file%) do set table_name=%%~nf
+    set export_table_include_types=false
 ) else (
     set table_name=%table_or_file%
     set table_query_file=%functions_folder%\export_table\export_table.sql
 )
+set output_file=%output_folder%\%table_name%.tsv
+set types_file=%output_folder%\%table_name%_types.tsv
 if "%verbose%" == "true" (
-   set verbose_arg=-Verbose
+    set verbose_arg=-Verbose
+)
+if "%export_table_include_header%" == "false" (
+    set no_header_arg=-NoHeader
 )
 
 call %functions_folder%\variable.bat :check_variable table_name
 call %functions_folder%\variable.bat :check_file     table_query_file
+call %functions_folder%\variable.bat :check_variable output_file
+call %functions_folder%\variable.bat :check_variable types_file
 
 goto:eof
 :: =======================================================================================
