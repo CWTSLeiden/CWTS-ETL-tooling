@@ -35,6 +35,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `create_database`                      | v3.0.0  |
 | `credentials`                          | dev     |
 | `curl_download_file`                   | v1.3.0  |
+| `echo`                                 | v1.0.0  |
 | `executables`                          | v1.1.1  |
 | `extract_noun_phrases`                 | v1.0.0  |
 | `folder`                               | v1.0.6  |
@@ -157,6 +158,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Download the header files of the file by default.
 - v1.1.0
     - Add optional `%curl_header%` parameter to add '-H' arguments to curl.
+
+### echo
 
 ### executables
 

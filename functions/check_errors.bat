@@ -29,6 +29,8 @@
 :: =======================================================================================
 setlocal
 
+set functions_folder=%~dp0
+
 set pause=%~1
 set total_errors=0
 set error_string=---------------------------------------------------------------
@@ -78,9 +80,7 @@ if %log_folder% == "" (
 for /R "%log_folder%\" %%f in (*.%extension%) do (
     if %%~zf GTR 0 (
         set /a errors+=1
-        if "%verbose%" == "true" (
-            echo verbose - Error in file: %%f
-        )
+        call %functions_folder%\echo.bat :verbose "Error in file: %%f"
     )
 )
 set /a total_errors+=%errors%
@@ -115,9 +115,9 @@ goto:eof
 ::: If there are errors in any of the logfiles, output the error_string
 :: =======================================================================================
 if %total_errors% GTR 0 (
-    echo There are %total_errors% errors in the logfiles
-    echo Amount ^| Program
-    echo %error_string%
+    call %functions_folder%\echo.bat :red "There are %total_errors% errors in the logfiles"
+    call %functions_folder%\echo.bat :red "Amount ^| Program"
+    call %functions_folder%\echo.bat :red "%error_string%"
     if not "%pause%" EQU "skip_pause" (pause)
 ) else (
     if "%pause%" EQU "pause" (

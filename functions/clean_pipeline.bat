@@ -55,9 +55,7 @@ goto:eof
 ::: Get-ChildItem | Foreach-Object { Remove-Object } removes without bookkeeping
 :: =======================================================================================
 set _folder=%~1
-if "%verbose%" == "true" (
-    echo verbose - Cleaning folder:  %_folder%
-)
+call %functions_folder%\echo.bat :verbose "Cleaning folder:  %_folder%"
 if exist "%_folder%" (
     call %powershell_exe% "Get-ChildItem -Path %_folder% -File -Recurse | ForEach-Object { Remove-Item $_.FullName }"
     call %powershell_exe% "Get-ChildItem -Path %_folder% -Recurse | ForEach-Object { Remove-Item -Recurse $_.FullName }"
