@@ -49,9 +49,7 @@ goto:eof
 :check_folder
 :: =======================================================================================
 set _folder=%~1
-if "%verbose%" == "true" (
-    echo verbose - Checking folder:  %_folder%
-)
+call %functions_folder%\echo.bat :verbose "Checking folder:  %_folder%"
 if exist "%_folder%" (
     echo error   - Please remove or archive the following folder:
     echo %_folder%
@@ -66,15 +64,11 @@ goto:eof
 :check_folder_content
 :: =======================================================================================
 set _folder=%~1
-if "%verbose%" == "true" (
-    echo verbose - Checking folder size:  %_folder%
-)
+call %functions_folder%\echo.bat :verbose "Checking folder size:  %_folder%"
 for /f %%i in ('%powershell_exe% "(Get-ChildItem -Path %_folder% -Recurse | Measure-Object -Property Length -Sum).Sum"') do (
     set /a folder_size_mb=%%i / 1024 / 1024
 )
-if "%verbose%" == "true" (
-    echo verbose - %folder_size_mb% MB
-)
+call %functions_folder%\echo.bat :verbose "%folder_size_mb% MB"
 if %folder_size_mb% GTR %size_treshold_mb% (
     echo error   - Pipeline remaining files [%folder_size_mb% MB] are larger than %size_treshold_mb% MB
     echo Please check for remaining data files. To proceed with archiving, continue.

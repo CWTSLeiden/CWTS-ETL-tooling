@@ -22,9 +22,7 @@ set _var=%~2
 call :check_variables
 if not defined _file (goto:eof)
 
-if "%verbose%" == "true" (
-    echo verbose - Read secrets from %_file%
-)
+call %functions_folder%\echo.bat :verbose "Read secrets from %_file%"
 
 if "%_file_extension%" == ".txt" (
     call :secret_txt "%_file%" "%_file_name%" %_var%
@@ -53,9 +51,7 @@ if not defined __var (
 set /p %__var%=<"%__file%"
 
 setlocal enabledelayedexpansion
-if "%verbose%" == "true" (
-    echo verbose - Secret variable: set %__var%=!%__var%!
-)
+call %functions_folder%\echo.bat :verbose "Secret variable: set %__var%=!%__var%!"
 endlocal
 
 goto:eof
@@ -69,9 +65,7 @@ set __file=%~1
 call "%functions_folder%\variable.bat" :check_file __file
 
 for /f "tokens=*" %%s in ('findstr /r "^set " "%__file%"') do (
-    if "%verbose%" == "true" (
-        echo verbose - Secret variable: %%s
-    )
+    call %functions_folder%\echo.bat :verbose "Secret variable: %%s"
     call %%s
 )
 
@@ -111,9 +105,7 @@ if not defined _file (
     call :find_secrets_file
 )
 if not defined _file (
-    if "%verbose%" == "true" (
-        echo verbose - No secrets file found
-    )
+    call %functions_folder%\echo.bat :verbose "No secrets file found"
 )
 
 goto:eof

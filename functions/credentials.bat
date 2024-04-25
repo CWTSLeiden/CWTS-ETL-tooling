@@ -45,13 +45,11 @@ if not defined user (
     echo error   - credentials not read
     call %functions_folder%\variable.bat :exit
 )
-if "%verbose%" == "true" (
-    echo verbose - credentials user read: %user%
-    if defined pass (
-         echo verbose - credentials password read
-    ) else (
-         echo verbose - credentials have no password
-    )
+call %functions_folder%\echo.bat :verbose "credentials user read: %user%"
+if defined pass (
+        call %functions_folder%\echo.bat :verbose "credentials password read"
+) else (
+        call %functions_folder%\echo.bat :verbose "credentials have no password"
 )
 goto:eof
 :: =======================================================================================

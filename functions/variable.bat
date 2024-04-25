@@ -40,6 +40,8 @@
 ::: All variables in this script start with '_' to avoid collisions with other variables.
 ::: ---------------------------------------------------------------------------------------
 
+set functions=%~dp0
+
 call %*
 
 goto:eof
@@ -61,9 +63,7 @@ set _expected_n_params=%~1
 set _n_params=-1
 for %%a in (%*) do set /a _n_params+=1
 
-if "%verbose%" == "true" (
-    echo verbose - Parameters:     %_expected_n_params% expected, %_n_params% received
-)
+call %functions%\echo.bat :verbose "Parameters:     %_expected_n_params% expected, %_n_params% received"
 if not "%_expected_n_params%" == "%_n_params%" (
     echo error - Parameters: %_expected_n_params% expected, %_n_params% received
     for %%a in (%*) do if not "%%a" == "%1" echo - %%a
@@ -89,9 +89,7 @@ if not defined %_var% (
     echo error - Variable not defined: %_var%
     call :exit
 )
-if "%verbose%" == "true" (
-    echo verbose - Variable value: %_var%=!%_var%!
-)
+call %functions%\echo.bat :verbose "Variable value: %_var%=!%_var%!"
 
 endlocal
 goto:eof
@@ -112,9 +110,7 @@ if not defined %_var% (
     set %_var%=%_value%
 )
 setlocal enabledelayedexpansion
-if "%verbose%" == "true" (
-    echo verbose - Variable value: %_var%=!%_var%!
-)
+call %functions%\echo.bat :verbose "Variable value: %_var%=!%_var%!"
 endlocal
 goto:eof
 :: =======================================================================================
@@ -133,9 +129,7 @@ set _value=%~2
 if not defined %_var% (
     set %_var%=%_value%
 )
-if "%verbose%" == "true" (
-    echo verbose - Variable value: %_var%=!%_var%!
-)
+call %functions%\echo.bat :verbose "Variable value: %_var%=!%_var%!"
 goto:eof
 :: =======================================================================================
 
@@ -156,9 +150,7 @@ if not exist "!%_folder%!" (
     echo error - Folder not found: '!%_folder%!'
     call :exit
 )
-if "%verbose%" == "true" (
-    echo verbose - Folder exists:  %_folder%
-)
+call %functions%\echo.bat :verbose "Folder exists:  %_folder%"
 
 endlocal
 goto:eof
@@ -181,9 +173,7 @@ if not exist "!%_file%!" (
     echo error - File not found: '!%_file%!'
     call :exit
 )
-if "%verbose%" == "true" (
-    echo verbose - File exists:    %_file%
-)
+call %functions%\echo.bat :verbose "File exists:    %_file%"
 
 endlocal
 goto:eof
@@ -210,9 +200,7 @@ if not "%_file_extension%" == ".%_extension%" (
     echo         Expected !%_file%! to have .%_extension% extension.
     call :exit
 )
-if "%verbose%" == "true" (
-    echo verbose - File extension: %_file%=%_extension%
-)
+call %functions%\echo.bat :verbose "File extension: %_file%=%_extension%"
 
 endlocal
 goto:eof
@@ -233,11 +221,9 @@ set _folder=%~1
 call :check_variable %_folder%
 if not exist "!%_folder%!" (
     md "!%_folder%!"
-    echo verbose - Folder created: %_folder%
+    call %functions%\echo.bat :verbose "Folder created: %_folder%"
 )
-if "%verbose%" == "true" (
-    echo verbose - Folder exists:  %_folder%
-)
+call %functions%\echo.bat :verbose "Folder exists:  %_folder%"
 
 endlocal
 goto:eof
