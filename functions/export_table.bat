@@ -48,7 +48,7 @@ if "%export_table_include_types%" == "true" (
 if "%export_table_include_types%" == "analyze" (
     set csv_analyzer_output_columns='%table_name%' as table_name, column_name, mssql_type as data_type, max_length, is_nullable
     call %functions_folder%\csv_analyze_data.bat ^
-        "%table_query_file%" ^
+        "%output_file%" ^
         "%types_file%"
 )
 
@@ -83,23 +83,33 @@ call %functions_folder%\variable.bat :create_folder    log_folder
 call %functions_folder%\variable.bat :default_variable export_table_include_header false
 call %functions_folder%\variable.bat :default_variable export_table_include_types  false
 
+set types_output_folder=%output_folder%\types
+if "%export_table_include_types%" == "true" (
+    call %functions_folder%\variable.bat :create_folder types_output_folder
+)
+
 if exist %table_or_file% (
-    set export_table_include_types=false
+    ::: Export by sql script mode
     set table_query_file=%table_or_file%
     for %%f in (%table_or_file%) do set table_name=%%~nf
-    set export_table_include_types=analyze
+    if "%export_table_include_types%" == "true" (
+        set export_table_include_types=analyze
+    )
 ) else (
+    ::: Export table mode
     set table_name=%table_or_file%
     set table_query_file=%functions_folder%\export_table\export_table.sql
 )
 set output_file=%output_folder%\%table_name%.tsv
-set types_file=%output_folder%\%table_name%_types.tsv
+set types_file=%types_output_folder%\types\%table_name%_types.tsv
+
 if "%verbose%" == "true" (
     set verbose_arg=-Verbose
 )
 if "%export_table_include_header%" == "false" (
     set no_header_arg=-NoHeader
 )
+
 
 call %functions_folder%\variable.bat :check_variable table_name
 call %functions_folder%\variable.bat :check_file     table_query_file
