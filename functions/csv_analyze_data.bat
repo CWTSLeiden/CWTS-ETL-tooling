@@ -21,9 +21,9 @@ setlocal
 set input_file=%~1
 set output_file=%~2
 
-call :check_variables 3 %*
+call :check_variables 2 %*
 
-echo %db_name% - analyse data
+echo %db_name% - analyze data
 %csv_analyzer_exe% ^
     --input_file %input_file% ^
     --output_file %output_file% ^
@@ -61,7 +61,7 @@ if defined csv_analyzer_sample_lines (
     set csv_analyzer_sample_lines_arg=--sample_size %csv_analyzer_sample_lines%
 )
 if defined csv_analyzer_output_columns (
-    set csv_analyzer_output_columns_arg=--output_columns %csv_analyzer_output_columns%
+    set csv_analyzer_output_columns_arg=--output_columns "%csv_analyzer_output_columns%"
 )
 
 goto:eof
