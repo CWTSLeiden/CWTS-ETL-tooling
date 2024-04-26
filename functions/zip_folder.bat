@@ -35,7 +35,7 @@ set zip_log_folder=%~3
 call :check_variables 3 %*
 
 echo Creating %target_file%
-"%zip_exe%" a "%target_file%" "%source_folder%" -mmt=16 -mx=5 -y -bsp0 -bso0 -bse1 > "%zip_log_folder%\compress_%target_file_name%.error"
+"%zip_exe%" a "%target_file%" "%source_folder%" -mmt=32 -mx=5 -y -bsp0 -bso0 -bse1 > "%zip_log_folder%\compress_%target_file_name%.error"
 
 echo Validating %target_file%
 "%zip_exe%" t "%target_file%" > nul 2>&1
@@ -78,9 +78,9 @@ call %functions_folder%\variable.bat :default_variable zip_include_directory fal
 call %functions_folder%\variable.bat :default_variable zip_append false
 
 if "%zip_include_directory%" == "true" (
-    set source_folder=%source_folder%\*
-) else (
     set source_folder=%source_folder%\
+) else (
+    set source_folder=%source_folder%\*
 )
 
 if "%zip_append%" NEQ "true" (
