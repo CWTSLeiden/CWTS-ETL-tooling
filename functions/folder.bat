@@ -2,8 +2,7 @@
 :: Root folder
 :: ---------------------------------------------------------------------------------------
 
-set functions_folder=%~dp0
-call %functions_folder%\variable.bat :check_folder root_folder
+call %~dp0\variable.bat :check_folder root_folder
 
 :: ---------------------------------------------------------------------------------------
 :: Backup-tooling folder
@@ -139,8 +138,10 @@ if not defined %_var% (
 )
 
 setlocal enabledelayedexpansion
-if not "!%_var%!" == "%_path%" (
-    call %functions_folder%\echo.bat :verbose "Folder override:  %_var%=!%_var%!"
+if "%verbose%" == "true" (
+    if not "!%_var%!" == "%_path%" (
+        echo verbose - Folder override:  %_var%=!%_var%!
+    )
 )
 endlocal
 goto:eof

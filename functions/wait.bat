@@ -39,7 +39,9 @@ set signal=%~f1
 
 call :check_variables 1 %*
 
-call %functions_folder%\echo.bat :verbose "Sending signal: %signal%"
+if "%verbose%" == "true" (
+    echo verbose - Sending signal: %signal%
+)
 
 :send_queue
 echo 1 >> %TEMP%\%signal%.signal || goto:send_queue
@@ -63,7 +65,9 @@ call :check_variables 2 %*
 call %functions_folder%\variable.bat :check_variable number
 
 echo Waiting for %number% processes to finish
-call %functions_folder%\echo.bat :verbose "%signal%"
+if "%verbose%" == "true" (
+    echo   signal: %signal%
+)
 
 :receive_queue
 if not exist %TEMP%\%signal%.signal (
@@ -92,7 +96,9 @@ setlocal
 
 if "%~1" NEQ "" ( set sleep_timer=%~1 )
 if defined sleep_timer (
-    call %functions_folder%\echo.bat :verbose "Sleep seconds:  %sleep_timer%\"
+    if "%verbose%" == "true" (
+        echo verbose - Sleep seconds:  %sleep_timer%
+    )
     timeout %sleep_timer% >nul
 )
 endlocal
@@ -109,7 +115,9 @@ goto:eof
 set signal=%~1
 
 call :check_variables 1 %*
-call %functions_folder%\echo.bat :verbose "Clean up signal: %signal%\"
+if "%verbose%" == "true" (
+    echo verbose - Clean up signal: %signal%
+)
 if defined TEMP (
     del /q %TEMP%\%signal%.signal 2> nul
     del /q %TEMP%\%signal%*.signal 2> nul
