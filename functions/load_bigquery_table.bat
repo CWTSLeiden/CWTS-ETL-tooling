@@ -80,6 +80,10 @@ call %programs_folder%\executables.bat
 :: check number of input parameters
 call %functions_folder%\variable.bat :check_parameters %*
 
+:: validate global variables
+call %functions_folder%\variable.bat :check_variable   bq_exe
+call %functions_folder%\variable.bat :check_variable   powershell_exe
+
 :: validate input variables
 call %functions_folder%\variable.bat :check_file       input_file
 call %functions_folder%\variable.bat :check_variable   bigquery_path
