@@ -43,6 +43,8 @@ call :set_if_not_defined powershell_exe "Powershell.exe -NoProfile -NonInteracti
 
 call :set_if_not_defined powershell_7_exe "pwsh.exe -NoProfile -NonInteractive -Command"
 
+call :set_if_not_defined csv_analyzer_exe "%_programs%\CsvAnalyzer\CsvAnalyzer.exe"
+
 goto:eof
 :: =======================================================================================
 
