@@ -101,7 +101,7 @@ if exist %table_or_file% (
     set table_query_file=%functions_folder%\export_table\export_table.sql
 )
 set output_file=%output_folder%\%table_name%.tsv
-set types_file=%types_output_folder%\types\%table_name%_types.tsv
+set types_file=%types_output_folder%\%table_name%_types.tsv
 
 if "%verbose%" == "true" (
     set verbose_arg=-Verbose
