@@ -115,9 +115,9 @@ goto:eof
 ::: If there are errors in any of the logfiles, output the error_string
 :: =======================================================================================
 if %total_errors% GTR 0 (
-    call %functions_folder%\echo.bat :red "There are %total_errors% errors in the logfiles"
-    call %functions_folder%\echo.bat :red "Amount ^| Program"
-    call %functions_folder%\echo.bat :red "%error_string%"
+    echo There are %total_errors% errors in the logfiles
+    echo Amount ^| Program
+    echo %error_string%
     if not "%pause%" EQU "skip_pause" (pause)
 ) else (
     if "%pause%" EQU "pause" (
