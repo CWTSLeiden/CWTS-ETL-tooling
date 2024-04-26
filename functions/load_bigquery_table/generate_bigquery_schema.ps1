@@ -16,6 +16,7 @@ param (
 
 function ConvertTypeBQ {
     param($Type)
+    $Type = $Type -replace "\([0-9]+\)",""
     Switch -Exact ($Type) {
         "char"           { return "STRING" }
         "varchar"        { return "STRING" }
