@@ -91,10 +91,10 @@ set programs_folder=%~dp0\..\programs
 call %programs_folder%\executables.bat
 
 :: Validate global variables
-call %functions_folder%\variable.bat :check_folder  data_folder
-call %functions_folder%\variable.bat :check_folder  process_folder
-call %functions_folder%\variable.bat :create_folder zip_log_folder
-call %functions_folder%\variable.bat :check_folder  pipelines_bulk_folder
+call %functions_folder%\variable.bat :check_variable data_folder
+call %functions_folder%\variable.bat :check_variable process_folder
+call %functions_folder%\variable.bat :create_folder  zip_log_folder
+call %functions_folder%\variable.bat :check_folder   pipelines_bulk_folder
 
 for %%i in ("%development_folder%") do set development_folder_name=%%~ni
 set pipeline_pipelines_bulk_folder=%pipelines_bulk_folder%\%development_folder_name%
