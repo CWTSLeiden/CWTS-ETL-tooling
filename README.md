@@ -1,5 +1,5 @@
 # CWTS ETL tooling
-Version: 8.0.0
+Version: 8.1.0
 
 ## Description
 
@@ -7,7 +7,43 @@ This repository contains all reusable components for running CWTS data pipelines
 
 ## Usage
 
-Generally, a copy of this repository should be placed at the root of a CWTS data pipeline. The scripts in the `/functions` folder can then be called relative to the current `.bat` script: `call .\etl-tooling\functions\check_errors.bat`. Alternatively calling `call .\etl-tooling\activate.bat` stores the location1.0.0  |
+Generally, a copy of this repository should be placed at the root of a CWTS data pipeline. The scripts in the `/functions` folder can then be called relative to the current `.bat` script: `call .\etl-tooling\functions\check_errors.bat`. Alternatively calling `call .\etl-tooling\activate.bat` stores the location of the `functions` folder in the `%functions%` variable so that subsequently the scripts in the `functions` folder can be called by `call %functions%\check_errors.bat`. This script will not overwrite variables that are already set.
+
+The executables in the `programs` folder can either be called directly or by their respective variables. Calling `call .\etl-tooling\programs\executables.bat`  or `call .\etl-tooling\activate.bat` will store the relevant executables in various variables (e.g. `%curl_exe%`). This script will not overwrite variables that are already set.
+
+Calling `call .\etl-tooling\functions\folder.bat` or `call .\etl-tooling\activate.bat` will set many of the variables used in CWTS data pipelines (like `%sql_src_folder%`) relative to the `%root_folder%` variable. This is done to maintain a consistent project structure across different data pipelines. This script will not overwrite variables that are already set and will propagate sub folder variables relative to their parent-folder variables if they are already set.
+
+When writing new pipeline code or ETL-tooling functions, the `functions\variable.bat` script can provide some error handling by checking the value of variables, existence of files or folders and functions parameters.
+
+# Changelog
+
+## Functions
+| function                               | version |
+|----------------------------------------|---------|
+| `add_extended_properties`              | v1.0.0  |
+| `apply_page_compression`               | v1.0.0  |
+| `archive_pipeline`                     | v1.0.0  |
+| `aws_download_folder`                  | v1.0.0  |
+| `bcp_data`                             | v1.0.2  |
+| `check_errors`                         | v0.3.3  |
+| `classification_create_classification` | v1.0.0  |
+| `classification_create_labeling`       | v1.0.0  |
+| `classification_create_vosviewer_maps` | v1.0.0  |
+| `classification_load_vosviewer_maps`   | v1.0.0  |
+| `classification_optimize_np_labels`    | v1.0.0  |
+| `clean_pipeline`                       | v1.0.0  |
+| `create_database`                      | v3.0.0  |
+| `credentials`                          | dev     |
+| `curl_download_file`                   | v1.3.0  |
+| `executables`                          | v1.1.1  |
+| `export_database`                      | dev     |
+| `export_table`                         | dev     |
+| `extract_noun_phrases`                 | v1.0.0  |
+| `folder`                               | v1.0.7  |
+| `get_datetime`                         | v1.0.0  |
+| `generate_database_documentation`      | v0.1.0  |
+| `grant_access_cwts_group`              | v2.0.0  |
+| `json_analyze_data`                    | v1.0.0  |
 | `json_parse_data`                      | v1.1.1  |
 | `load_database`                        | v1.0.0  |
 | `log_runtime`                          | v0.0.1  |
@@ -56,6 +92,8 @@ Generally, a copy of this repository should be placed at the root of a CWTS data
     - Add wait.bat :sleep_subprocess
 
 ### check_errors
+- v0.3.4
+    - `%export_log_folder%` added for export_table function
 - v0.3.3
     - `%backup_log_folder%` added for backup-tooling
 - v0.3.2
@@ -124,14 +162,16 @@ Generally, a copy of this repository should be placed at the root of a CWTS data
 - v1.1.0
     - Add optional `%curl_header%` parameter to add '-H' arguments to curl.
 
-### echo
-
 ### executables
 
 - v1.1.1
     - bugfix: check folder failed, so executable variables were not overwritable by settings.bat.
 - v1.1.0
     - rename `%read_data_exe%` to `%readdata_exe%`
+
+### export_database
+
+### export_table
 
 ### extract_noun_phrases
 
@@ -141,6 +181,9 @@ Generally, a copy of this repository should be placed at the root of a CWTS data
 
 ### folder
 
+- v1.0.7
+    - add `%export_data_folder%`
+    - add `%export_log_folder%`
 - v1.0.6
     - add `%publicationclassification_log_folder%`
     - add `%publicationclassificationlabeling_log_folder%`
