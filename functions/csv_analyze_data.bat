@@ -20,10 +20,11 @@ setlocal
 
 set input_file=%~1
 set output_file=%~2
+set output_folder=%~dp2
 
 call :check_variables 2 %*
 
-echo %db_name% - analyze data
+echo analyze csv file: %input_file%
 %csv_analyzer_exe% ^
     --input_file %input_file% ^
     --output_file %output_file% ^
@@ -54,8 +55,9 @@ call %programs_folder%\executables.bat
 call %functions_folder%\variable.bat :check_parameters %*
 
 :: Validate input variables
-call %functions_folder%\variable.bat :check_folder   input_file
-call %functions_folder%\variable.bat :create_folder  output_file
+call %functions_folder%\variable.bat :check_file     input_file
+call %functions_folder%\variable.bat :check_variable output_file
+call %functions_folder%\variable.bat :create_folder  output_folder
 
 if defined csv_analyzer_sample_lines (
     set csv_analyzer_sample_lines_arg=--sample_size %csv_analyzer_sample_lines%
