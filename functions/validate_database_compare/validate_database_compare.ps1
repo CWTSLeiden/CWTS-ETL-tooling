@@ -36,7 +36,7 @@ foreach ($table in $tables) {
     $oldcount = [int64]$oldtable[$table]
     $newcount = [int64]$newtable[$table]
     $difference = [int64]($newcount - $oldcount)
-    $difference_p = if ($newcount -gt 0) { $difference / $newcount }
+    $difference_p = if ($newcount -gt 0) { [decimal]($difference / $newcount) }
     $comparison += [pscustomobject]@{Table=$table;OldCount=$oldcount; NewCount=$newcount; Difference=$difference; DifferenceP=$difference_p}
 }
 

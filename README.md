@@ -63,7 +63,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `unzip_file`                           | v2.1.1  |
 | `unzip_folder`                         | v1.0.0  |
 | `validate_database`                    | v3.0.0  |
-| `validate_database_compare`            | v1.0.0  |
+| `validate_database_compare`            | v1.0.1  |
 | `validate_data_types`                  | v2.0.0  |
 | `validate_data_types_compare`          | v1.0.0  |
 | `variable`                             | v1.0.0  |
