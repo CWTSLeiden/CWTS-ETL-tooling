@@ -22,7 +22,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 |----------------------------------------|---------|
 | `add_extended_properties`              | v1.0.0  |
 | `apply_page_compression`               | v1.0.0  |
-| `archive_pipeline`                     | v1.0.0  |
+| `archive_pipeline`                     | v1.1.0  |
 | `aws_download_folder`                  | v1.0.0  |
 | `bcp_data`                             | v1.0.2  |
 | `check_errors`                         | v0.3.2  |
@@ -80,6 +80,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### apply_page_compression
 
 ### archive_pipeline
+- v1.1.0
+    - Fix bug in bulk folder path
 
 ### aws_download_folder
 

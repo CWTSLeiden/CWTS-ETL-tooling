@@ -37,7 +37,7 @@ rd /S /Q %temp_zip_log_folder%
 call %functions%\check_errors.bat
 
 echo Move archive to Bulk storage
-move /Y "%development_folder%\%pipeline_archive_file%" "%bulk_archive_folder%\%pipeline_archive_file%"
+move /Y "%development_folder%\%pipeline_archive_file%" "%pipeline_pipelines_bulk_folder%\%pipeline_archive_file%"
 
 echo Archiving of %root_folder% to %pipeline_archive_file% complete
 
