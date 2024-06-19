@@ -21,7 +21,6 @@ function filepicker {
     param (
         [string] $title = "Pick file"
     )
-    $type = if ($oldfile) { "old" } else { "new" }
     Add-Type -AssemblyName System.Windows.Forms
     $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
         InitialDirectory = [Environment]::GetFolderPath('Desktop')

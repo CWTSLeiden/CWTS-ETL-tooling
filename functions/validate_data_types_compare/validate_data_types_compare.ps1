@@ -12,10 +12,39 @@
 # =======================================================================================
 
 param (
-    [Parameter(Mandatory=$true)] [System.IO.FileInfo] $old,
-    [Parameter(Mandatory=$true)] [System.IO.FileInfo] $new,
+    [System.IO.FileInfo] $old,
+    [System.IO.FileInfo] $new,
     [System.IO.FileInfo] $out
 )
+
+function filepicker {
+    param (
+        [string] $title = "Pick file"
+    )
+    Add-Type -AssemblyName System.Windows.Forms
+    $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{
+        InitialDirectory = [Environment]::GetFolderPath('Desktop')
+        Filter = 'tsv files (*.tsv)|*.tsv|csv files (*.csv)|*.csv|All files (*.*)|*.*'
+        Title = $title
+    }
+    $FileBrowser.ShowDialog() | Out-Null
+    return $FileBrowser.FileName
+}
+
+if (!(Test-Path -Path $old)) {
+    $old = filepicker -title "Pick file from previous update"
+}
+if (!(Test-Path -Path $new)) {
+    $new = filepicker -title "Pick file from current update"
+}
+if (!(Test-Path -Path $old)) {
+    Write-Error "Validation files from previous update missing"
+    exit 1
+}
+if (!(Test-Path -Path $new)) {
+    Write-Error "Validation files from current update missing"
+    exit 1
+}
 
 # Get the validation files and convert them into hash tables
 # The hash table has the table.column name as key and [datatype,length] as value
