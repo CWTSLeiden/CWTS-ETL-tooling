@@ -58,14 +58,12 @@ if not defined new_validation_file (
     call %functions_folder%\variable.bat :check_folder validation_data_folder
     set new_validation_file=%validation_data_folder%\%db_name%_row_count_tables.tsv
 )
-call %functions_folder%\variable.bat :check_file new_validation_file
 
 if not defined old_validation_file (
     call %functions_folder%\variable.bat :check_variable db_version
     call %functions_folder%\variable.bat :check_variable previous_db_version
     call set old_validation_file=%%new_validation_file:%db_version%=%previous_db_version%%%
 )
-call %functions_folder%\variable.bat :check_file old_validation_file
 
 
 goto:eof
