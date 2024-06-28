@@ -63,9 +63,9 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `unzip_file`                           | v2.1.1  |
 | `unzip_folder`                         | v1.0.0  |
 | `validate_database`                    | v3.0.0  |
-| `validate_database_compare`            | v1.0.1  |
+| `validate_database_compare`            | v1.0.2  |
 | `validate_data_types`                  | v2.0.0  |
-| `validate_data_types_compare`          | v1.0.0  |
+| `validate_data_types_compare`          | v1.0.1  |
 | `variable`                             | v1.0.0  |
 | `wait`                                 | v2.0.0  |
 | `xml_analyze_data`                     | v2.1.0  |
@@ -302,6 +302,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - rename function `validation_database.bat` to `validate_database.bat`
 
 ### validate_database_compare
+- v1.0.2
+    - add file picker if validation files cannot be found
 
 ### validate_data_types
 
@@ -309,6 +311,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - remove `%target_file%` parameter, now auto-generated from `%db_name%` and `%validation_data_folder%`
 
 ### validate_data_types_compare
+- v1.0.1
+    - add file picker if validation files cannot be found
 
 ### variable
 

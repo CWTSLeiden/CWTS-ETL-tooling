@@ -35,6 +35,8 @@ call %powershell_exe% "& %functions_folder%\validate_database_compare\validate_d
 
 endlocal
 goto:eof
+:: =======================================================================================
+
 
 :: =======================================================================================
 :check_variables
@@ -64,7 +66,6 @@ if not defined old_validation_file (
     call %functions_folder%\variable.bat :check_variable previous_db_version
     call set old_validation_file=%%new_validation_file:%db_version%=%previous_db_version%%%
 )
-
 
 goto:eof
 :: =======================================================================================
