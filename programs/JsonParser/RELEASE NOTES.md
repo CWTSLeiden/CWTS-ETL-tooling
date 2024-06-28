@@ -5,12 +5,12 @@
 |Name|Versions|
 |---|---|
 |altmetric|2019oct, 2021jun, 2022may|
-|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9|
+|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul|
 |dimensionscategories|2020apr_update, 2021jan|
 |dimensionsfundergroups|format_1|
-|dimensionsgrants|format_6|
+|dimensionsgrants|format_6, 2024jul|
 |dimensionsresearchgroups|format_1|
-|dimensionsorganisations|2023_jul|
+|dimensionsorganisations|2023_jul, 2024jul|
 |grid|2020jun, 2020dec|
 |overton|2020jul, 2021may, 2023may|
 |unpaywall|2020apr, 2020oct|
@@ -21,9 +21,9 @@
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
 |crossrefeventdata|2021aug|
-|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
+|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may|
 |openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
-|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov|
+|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may|
 |openalexvenues|2022jul|
 |openalexconcepts|2022jul, 2023feb, 2023jul|
 |openalexsources|2023feb, 2023jul|
@@ -40,6 +40,38 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+### 1.35.0.0
+
+- Nieuwe velden
+    - organisation.external_ids.UEI.all[seq]
+    - organisation.external_ids.UEI.preferred
+    - grants.concepts_scores_v6[seq].concept
+    - grants.concepts_scores_v6[seq].relevance
+    - publication.concepts_scores_v6[seq].concept
+    - publication.concepts_scores_v6[seq].concept
+    - publication.created_in_dimensions
+    - publication.doctype_classification_v1
+    - publication.doctype_is_citable_v1
+    - publication.mesh.headings[seq]
+    - publication.mesh.terms[seq]
+    - publication.mesh.ui[seq]
+    - publication.pubmed_publication_types[seq]
+    - publication.source.eissn
+    - publication.source.issn
+
+- Verwijderde velden
+    - publication.doctype_classification_v0
+    - publication.doctype_is_citable_v0
+
+### 1.34.0.0
+
+- Nieuwe velden
+    - institutions.is_super_system
+    - works.best_oa_location.license_id
+    - works.keywords[seq].display_name
+    - works.keywords[seq].id
+    - works.locations[seq].license_id
+    - works.primary_location.license_id
 
 ### 1.33.0.0
 
