@@ -22,7 +22,11 @@ call :check_variables 3 %*
 
 echo %db_name% - Set database owner to [%owner%]
 
-sqlcmd -S %server% -d %db_name% -U %user% -P %pass% -m 1 -Q"exec sp_changedbowner [%owner%]" -o "%sql_log_folder%\set_database_owner.log"
+if defined pass (
+    sqlcmd -S %server% -d %db_name% -U %user% -P %pass% -m 1 -Q"exec sp_changedbowner [%owner%]" -o "%sql_log_folder%\set_database_owner.log"
+) else (
+    sqlcmd -S %server% -d %db_name% -E -m 1 -Q"exec sp_changedbowner [%owner%]" -o "%sql_log_folder%\set_database_owner.log"
+)
 
 endlocal
 goto:eof
@@ -42,7 +46,6 @@ call %functions_folder%\variable.bat :check_parameters %*
 :: Validate global variables
 call %functions_folder%\variable.bat :check_variable server
 call %functions_folder%\variable.bat :check_variable user
-call %functions_folder%\variable.bat :check_variable pass
 
 :: Validate input variables
 call %functions_folder%\variable.bat :check_variable db_name
