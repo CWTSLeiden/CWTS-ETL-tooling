@@ -29,6 +29,14 @@ for /f %%f in ('dir /b /ON "%sql_folder%\*.sql"') do (
         %sql_folder%\%%f ^
         %log_folder% ^
         "%sqlcmd_variables%"
+
+    for %%l in ("%log_folder%\%%~nf.log") do (
+        if %%~zl GTR 0 (
+            call %functions_folder%\echo.bat :error "Error while running %%~nxf"
+            call %functions_folder%\echo.bat :error "check log file: %%~l"
+            if not "%sql_interrupt_on_error%" == "false" (goto:eof)
+        )
+    )
 )
 goto:eof
 :: =======================================================================================
@@ -48,8 +56,9 @@ call %functions_folder%\variable.bat :check_parameters %*
 call %functions_folder%\variable.bat :check_variable db_name
 
 :: Validate input variables
-call %functions_folder%\variable.bat :check_folder   sql_folder
-call %functions_folder%\variable.bat :create_folder  sql_log_folder
+call %functions_folder%\variable.bat :check_folder     sql_folder
+call %functions_folder%\variable.bat :create_folder    sql_log_folder
+call %functions_folder%\variable.bat :default_variable sql_interrupt_on_error true
 
 goto:eof
 :: =======================================================================================

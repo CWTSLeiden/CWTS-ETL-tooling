@@ -1,5 +1,5 @@
 # CWTS ETL tooling
-Version: 8.0.1
+Version: 8.1.1
 
 ## Description
 
@@ -48,7 +48,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `log_runtime`                          | v0.0.1  |
 | `notify`                               | v1.0.0  |
 | `notify_errors`                        | v0.1.0  |
-| `run_sql_folder`                       | v1.0.0  |
+| `run_sql_folder`                       | v1.1.0  |
 | `run_sql_query`                        | dev     |
 | `run_sql_script`                       | v1.0.1  |
 | `secret`                               | v1.0.0  |
@@ -233,6 +233,11 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### notify_errors
 
 ### run_sql_folder
+
+- v1.1.0
+    - By default the function will now stop running scripts when a script produces an error in its logfile.
+    - **add global variable `sql_interrupt_on_error`**
+        - set to "false" to disable the interruption
 
 ### run_sql_query
 
