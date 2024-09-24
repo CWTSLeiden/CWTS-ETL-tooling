@@ -30,10 +30,10 @@ for /f %%f in ('dir /b /ON "%sql_folder%\*.sql"') do (
         %log_folder% ^
         "%sqlcmd_variables%"
 
-    for %%l in ("%log_folder%\%%~nf.log") do (
+    for %%l in ("%log_folder%\%%~nf.error") do (
         if %%~zl GTR 0 (
             call %functions_folder%\echo.bat :error "Error while running %%~nxf"
-            call %functions_folder%\echo.bat :error "check log file: %%~l"
+            call %functions_folder%\echo.bat :error "check error file: %%~l"
             if not "%sql_interrupt_on_error%" == "false" (goto:eof)
         )
     )

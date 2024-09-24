@@ -45,7 +45,8 @@ call :check_errors "LargeFileSplitter" "%large_file_splitter_log_folder%" error
 call :check_errors "NPExtractorDB" "%noun_phrase_extractor_log_folder%" error
 call :check_errors "Patstat CVT" "%patstat_cvt_log_folder%" error
 call :check_errors "ReadData" "%readdata_log_folder%" error
-call :check_errors "SQL" "%sql_log_folder%" log
+call :check_errors "SQL" "%sql_log_folder%" error
+call :check_errors "SQL log" "%sql_log_folder%" log
 call :check_errors "XML File Splitter" "%xml_file_splitter_log_folder%" error
 call :check_errors "Zip" "%zip_log_folder%" error
 
@@ -74,7 +75,7 @@ set log_folder=%2
 set extension=%~3
 
 if %log_folder% == "" (
-   goto:eof
+    goto:eof
 )
 
 for /R "%log_folder%\" %%f in (*.%extension%) do (

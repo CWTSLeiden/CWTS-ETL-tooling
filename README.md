@@ -25,7 +25,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `archive_pipeline`                     | v1.1.0  |
 | `aws_download_folder`                  | v1.0.0  |
 | `bcp_data`                             | v1.0.2  |
-| `check_errors`                         | v0.3.2  |
+| `check_errors`                         | v0.4.0  |
 | `classification_create_classification` | v1.0.0  |
 | `classification_create_labeling`       | v1.0.0  |
 | `classification_create_vosviewer_maps` | v1.0.0  |
@@ -50,7 +50,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `notify_errors`                        | v0.1.0  |
 | `run_sql_folder`                       | v1.1.0  |
 | `run_sql_query`                        | dev     |
-| `run_sql_script`                       | v1.0.1  |
+| `run_sql_script`                       | v1.1.1  |
 | `secret`                               | v1.0.0  |
 | `set_database_file_limits`             | v1.1.0  |
 | `set_database_owner`                   | dev     |
@@ -93,6 +93,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Add wait.bat :sleep_subprocess
 
 ### check_errors
+- v0.4.0
+    - Add check for sql .error files
 - v0.3.3
     - `%backup_log_folder%` added for backup-tooling
 - v0.3.2
@@ -235,7 +237,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### run_sql_folder
 
 - v1.1.0
-    - By default the function will now stop running scripts when a script produces an error in its logfile.
+    - By default the function will now stop running scripts when a script produces an error in its error file.
     - **add global variable `sql_interrupt_on_error`**
         - set to "false" to disable the interruption
 
@@ -243,6 +245,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### run_sql_script
 
+- v1.1.0
+    - properly separate error and log output: errors will be written to an .error file, messages and query results will be written to the .log file.
 - v1.0.1
     - bugfix: sql variables were not being passed to script.
     

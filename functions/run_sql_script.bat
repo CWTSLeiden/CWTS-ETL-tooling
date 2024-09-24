@@ -26,7 +26,16 @@ call :check_variables 4 %*
 
 echo %db_name% - running %sql_file_name% sql script
 
-sqlcmd -S %server% -d %db_name% -E -m 1 -i"%sql_file%" -o "%db_sql_log_folder%\%sql_file_name%.log" %sqlcmd_variables%
+sqlcmd ^
+    -E ^
+    -S %server% ^
+    -d %db_name% ^
+    -m 1 ^
+    -r 0 ^
+    -i "%sql_file%" ^
+    %sqlcmd_variables% ^
+    1> "%db_sql_log_folder%\%sql_file_name%.log" ^
+    2> "%db_sql_log_folder%\%sql_file_name%.error"
 
 endlocal
 goto:eof

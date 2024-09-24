@@ -17,6 +17,7 @@ setlocal
 
 set db_name=%~1
 set log_file=%~2
+set log_file_name=%~n2
 set log_folder=%~dp2
 set query=%~3
 
@@ -25,7 +26,16 @@ call :check_variables 3 %*
 echo %db_name% - running query
 if "%verbose%" == "true" ( echo   %query% )
 
-sqlcmd -S %server% -d %db_name% -E -m 1 -Q"%query%" -o "%log_file%"
+sqlcmd ^
+    -E ^
+    -S %server% ^
+    -d %db_name% ^
+    -m 1 ^
+    -r 0 ^
+    -Q "%query%" ^
+    %sqlcmd_variables% ^
+    1> "%log_folder%\%log_file_name%.log" ^
+    2> "%log_folder%\%log_file_name%.error"
 
 endlocal
 goto:eof
