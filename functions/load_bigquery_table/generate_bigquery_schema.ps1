@@ -29,9 +29,9 @@ function ConvertTypeBQ {
         "smallint"       { return "INT64" }
         "tinyint"        { return "INT64" }
         "bit"            { return "BOOL" }
-        "numeric"        { return "NUMERIC" }
-        "decimal"        { return "NUMERIC" }
-        "float"          { return "NUMERIC" }
+        "numeric"        { return "FLOAT64" }
+        "decimal"        { return "FLOAT64" }
+        "float"          { return "FLOAT64" }
         "real"           { return "FLOAT64" }
         Default          { return "STRING" }
     }
