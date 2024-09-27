@@ -27,11 +27,11 @@ set log_folder=%~4
 
 call :check_variables 4 %*
 
-set sqlcmd_exe=sqlcmd -S %server% -E -m 1 -y0
+set sqlcmd_exe=sqlcmd -S %server%  -d %db_name% -E -m 1 -y0
 
 echo Export database %db_name%
 
-set "table_query=select table_name from information_schema.tables order by table_name"
+set "table_query=select table_name from information_schema.tables where table_schema = 'dbo' order by table_name"
 call %sqlcmd_exe% -Q "set nocount on; %table_query%" -o "%output_folder%\table_export.conf"
 if exist "%export_sql_folder%" (
     for /f %%f in ('dir /b /ON "%export_sql_folder%\*.sql"') do (
