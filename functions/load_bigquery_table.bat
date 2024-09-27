@@ -37,6 +37,7 @@ call %bq_exe% load ^
     --skip_leading_rows=%load_bigquery_skip_leading_rows% ^
     --null_marker="" ^
     --allow_jagged_rows=false ^
+    --apilog %log_folder%\%file_name%.log ^
     %bigquery_path% ^
     %input_file% ^
     %schema_file%
