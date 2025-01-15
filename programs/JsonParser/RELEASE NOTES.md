@@ -35,21 +35,287 @@
 |openalexsubfields|2024mar|
 |twitter|2022jul|
 |bso|2023sep|
-|openaireorganization|2024aug|
-|openairerelation|2024aug|
-|openaireproject|2024aug|
-|openairedatasource|2024aug|
-|openairecommunity_infrastructure|2024aug|
-|openairedataset|2024aug|
-|openaireother_research_product|2024aug|
-|openairepublication|2024aug|
-|openairesoftware|2024aug|
+|openaireorganization|2024aug|2025jan|
+|openairerelation|2024aug|2025jan|
+|openaireproject|2024aug|2025jan|
+|openairedatasource|2024aug|2025jan|
+|openairecommunity_infrastructure|2024aug|2025jan|
+|openairedataset|2024aug|2025jan|
+|openaireother_research_product|2024aug|2025jan|
+|openairepublication|2024aug|2025jan|
+|openairesoftware|2024aug|2025jan|
 |leidenrepository|2024aug|
 
 OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.41.0.0
+
+  - Nieuwe velden OpenAIRE
+    - software.author[seq].fullName
+    - software.bestAccessRight.code
+    - software.bestAccessRight.label
+    - software.bestAccessRight.scheme
+    - software.dateOfCollection
+    - software.embargoEndDate
+    - software.indicators.citationImpact
+    - software.indicators.citationImpact.citationClass
+    - software.indicators.citationImpact.citationCount
+    - software.indicators.citationImpact.impulse
+    - software.indicators.citationImpact.impulseClass
+    - software.indicators.citationImpact.influence
+    - software.indicators.citationImpact.influenceClass
+    - software.indicators.citationImpact.popularity
+    - software.indicators.citationImpact.popularityClass
+    - software.instance[seq].accessRight.code
+    - software.instance[seq].accessRight.label
+    - software.instance[seq].accessRight.openAccessRoute
+    - software.instance[seq].accessRight.scheme
+    - software.instance[seq].publicationDate
+    - software.lastUpdateTimeStamp
+    - software.mainTitle
+    - software.publicationDate
+    - software.subTitle
+    - relation.relType.name
+    - relation.relType.type
+    - publication.author[seq].fullName
+    - publication.bestAccessRight.code
+    - publication.bestAccessRight.label
+    - publication.bestAccessRight.scheme
+    - publication.container.conferenceDate
+    - publication.container.conferencePlace
+    - publication.dateOfCollection
+    - publication.embargoEndDate
+    - publication.indicators.citationImpact
+    - publication.indicators.citationImpact.citationClass
+    - publication.indicators.citationImpact.citationCount
+    - publication.indicators.citationImpact.impulse
+    - publication.indicators.citationImpact.impulseClass
+    - publication.indicators.citationImpact.influence
+    - publication.indicators.citationImpact.influenceClass
+    - publication.indicators.citationImpact.popularity
+    - publication.indicators.citationImpact.popularityClass
+    - publication.instance[seq].accessRight.code
+    - publication.instance[seq].accessRight.label
+    - publication.instance[seq].accessRight.openAccessRoute
+    - publication.instance[seq].accessRight.scheme
+    - publication.instance[seq].articleProcessingCharge.amount
+    - publication.instance[seq].articleProcessingCharge.currency
+    - publication.instance[seq].publicationDate
+    - publication.lastUpdateTimeStamp
+    - publication.mainTitle
+    - publication.publicationDate
+    - publication.subTitle
+    - project.callIdentifier
+    - project.endDate
+    - project.funding[seq].fundingStream.description
+    - project.funding[seq].fundingStream.id
+    - project.granted.fundedAmount
+    - project.granted.totalCost
+    - project.h2020Programme[seq].code
+    - project.h2020Programme[seq].description
+    - project.openAccessMandateForDataset
+    - project.openAccessMandateForPublications
+    - project.startDate
+    - project.websiteUrl
+    - otherresearchproduct.author[seq].fullName
+    - otherresearchproduct.bestAccessRight.code
+    - otherresearchproduct.bestAccessRight.label
+    - otherresearchproduct.bestAccessRight.scheme
+    - otherresearchproduct.contactPerson[seq]
+    - otherresearchproduct.dateOfCollection
+    - otherresearchproduct.embargoEndDate
+    - otherresearchproduct.indicators.citationImpact
+    - otherresearchproduct.indicators.citationImpact.citationClass
+    - otherresearchproduct.indicators.citationImpact.citationCount
+    - otherresearchproduct.indicators.citationImpact.impulse
+    - otherresearchproduct.indicators.citationImpact.impulseClass
+    - otherresearchproduct.indicators.citationImpact.influence
+    - otherresearchproduct.indicators.citationImpact.influenceClass
+    - otherresearchproduct.indicators.citationImpact.popularity
+    - otherresearchproduct.indicators.citationImpact.popularityClass
+    - otherresearchproduct.instance[seq].accessRight.code
+    - otherresearchproduct.instance[seq].accessRight.label
+    - otherresearchproduct.instance[seq].accessRight.openAccessRoute
+    - otherresearchproduct.instance[seq].accessRight.scheme
+    - otherresearchproduct.instance[seq].articleProcessingCharge.amount
+    - otherresearchproduct.instance[seq].articleProcessingCharge.currency
+    - otherresearchproduct.instance[seq].publicationDate
+    - otherresearchproduct.lastUpdateTimeStamp
+    - otherresearchproduct.mainTitle
+    - otherresearchproduct.publicationDate
+    - otherresearchproduct.subTitle
+    - organization.alternativeNames[seq]
+    - organization.legalName
+    - organization.legalShortName
+    - organization.websiteUrl
+    - datasource.accessRights
+    - datasource.citationGuidelineUrl
+    - datasource.dataUploadRestriction
+    - datasource.databaseAccessRestriction
+    - datasource.dateOfValidation
+    - datasource.englishName
+    - datasource.logoUrl
+    - datasource.missionStatementUrl
+    - datasource.officialName
+    - datasource.openaireCompatibility
+    - datasource.pidSystems
+    - datasource.releaseEndDate
+    - datasource.releaseStartDate
+    - datasource.type.scheme
+    - datasource.type.value
+    - datasource.uploadRights
+    - datasource.websiteUrl
+    - dataset.author[seq].fullName
+    - dataset.bestAccessRight.code
+    - dataset.bestAccessRight.label
+    - dataset.bestAccessRight.scheme
+    - dataset.dateOfCollection
+    - dataset.embargoEndDate
+    - dataset.indicators.citationImpact
+    - dataset.indicators.citationImpact.citationClass
+    - dataset.indicators.citationImpact.citationCount
+    - dataset.indicators.citationImpact.impulse
+    - dataset.indicators.citationImpact.impulseClass
+    - dataset.indicators.citationImpact.influence
+    - dataset.indicators.citationImpact.influenceClass
+    - dataset.indicators.citationImpact.popularity
+    - dataset.indicators.citationImpact.popularityClass
+    - dataset.instance[seq].accessRight.code
+    - dataset.instance[seq].accessRight.label
+    - dataset.instance[seq].accessRight.openAccessRoute
+    - dataset.instance[seq].accessRight.scheme
+    - dataset.instance[seq].publicationDate
+    - dataset.lastUpdateTimeStamp
+    - dataset.mainTitle
+    - dataset.publicationDate
+    - dataset.subTitle
+    - community_infrastructure.zenodoCommunity
+
+  - Verwijderde velden OpenAIRE
+    - software.author[seq].fullname
+    - software.bestaccessright.code
+    - software.bestaccessright.label
+    - software.bestaccessright.scheme
+    - software.dateofcollection
+    - software.embargoenddate
+    - software.green
+    - software.inDiamondJournal
+    - software.indicators.bipIndicators[seq].class
+    - software.indicators.bipIndicators[seq].indicator
+    - software.indicators.bipIndicators[seq].score
+    - software.instance[seq].accessright.code
+    - software.instance[seq].accessright.label
+    - software.instance[seq].accessright.openAccessRoute
+    - software.instance[seq].accessright.scheme
+    - software.instance[seq].publicationdate
+    - software.lastupdatetimestamp
+    - software.maintitle
+    - software.publicationdate
+    - software.subtitle
+    - relation.reltype.name
+    - relation.reltype.type
+    - publication.author[seq].fullname
+    - publication.bestaccessright.code
+    - publication.bestaccessright.label
+    - publication.bestaccessright.scheme
+    - publication.container.conferencedate
+    - publication.container.conferenceplace
+    - publication.dateofcollection
+    - publication.embargoenddate
+    - publication.green
+    - publication.inDiamondJournal
+    - publication.indicators.bipIndicators[seq].class
+    - publication.indicators.bipIndicators[seq].indicator
+    - publication.indicators.bipIndicators[seq].score
+    - publication.instance[seq].accessright.code
+    - publication.instance[seq].accessright.label
+    - publication.instance[seq].accessright.openAccessRoute
+    - publication.instance[seq].accessright.scheme
+    - publication.instance[seq].articleprocessingcharge.amount
+    - publication.instance[seq].articleprocessingcharge.currency
+    - publication.instance[seq].publicationdate
+    - publication.lastupdatetimestamp
+    - publication.maintitle
+    - publication.publicationdate
+    - publication.subtitle
+    - project.callidentifier
+    - project.enddate
+    - project.funding[seq].funding_stream.description
+    - project.funding[seq].funding_stream.id
+    - project.granted.fundedamount
+    - project.granted.totalcost
+    - project.h2020programme[seq].code
+    - project.h2020programme[seq].description
+    - project.openaccessmandatefordataset
+    - project.openaccessmandateforpublications
+    - project.startdate
+    - project.websiteurl
+    - otherresearchproduct.author[seq].fullname
+    - otherresearchproduct.bestaccessright.code
+    - otherresearchproduct.bestaccessright.label
+    - otherresearchproduct.bestaccessright.scheme
+    - otherresearchproduct.contactperson[seq]
+    - otherresearchproduct.dateofcollection
+    - otherresearchproduct.embargoenddate
+    - otherresearchproduct.green
+    - otherresearchproduct.inDiamondJournal
+    - otherresearchproduct.indicators.bipIndicators[seq].class
+    - otherresearchproduct.indicators.bipIndicators[seq].indicator
+    - otherresearchproduct.indicators.bipIndicators[seq].score
+    - otherresearchproduct.instance[seq].accessright.code
+    - otherresearchproduct.instance[seq].accessright.label
+    - otherresearchproduct.instance[seq].accessright.openAccessRoute
+    - otherresearchproduct.instance[seq].accessright.scheme
+    - otherresearchproduct.instance[seq].publicationdate
+    - otherresearchproduct.lastupdatetimestamp
+    - otherresearchproduct.maintitle
+    - otherresearchproduct.publicationdate
+    - otherresearchproduct.subtitle
+    - organization.alternativenames[seq]
+    - organization.legalname
+    - organization.legalshortname
+    - organization.websiteurl
+    - datasource.accessrights
+    - datasource.citationguidelineurl
+    - datasource.databaseaccessrestriction
+    - datasource.datasourcetype.scheme
+    - datasource.datasourcetype.value
+    - datasource.datauploadrestriction
+    - datasource.dateofvalidation
+    - datasource.englishname
+    - datasource.logourl
+    - datasource.missionstatementurl
+    - datasource.officialname
+    - datasource.openairecompatibility
+    - datasource.pidsystems
+    - datasource.releaseenddate
+    - datasource.releasestartdate
+    - datasource.uploadrights
+    - datasource.websiteurl
+    - dataset.author[seq].fullname
+    - dataset.bestaccessright.code
+    - dataset.bestaccessright.label
+    - dataset.bestaccessright.scheme
+    - dataset.dateofcollection
+    - dataset.embargoenddate
+    - dataset.green
+    - dataset.inDiamondJournal
+    - dataset.indicators.bipIndicators[seq].class
+    - dataset.indicators.bipIndicators[seq].indicator
+    - dataset.indicators.bipIndicators[seq].score
+    - dataset.instance[seq].accessright.code
+    - dataset.instance[seq].accessright.label
+    - dataset.instance[seq].accessright.openAccessRoute
+    - dataset.instance[seq].accessright.scheme
+    - dataset.instance[seq].publicationdate
+    - dataset.lastupdatetimestamp
+    - dataset.maintitle
+    - dataset.publicationdate
+    - dataset.subtitle
+    - community_infrastructure.zenodo_community
 
 ### 1.40.0.0
 
