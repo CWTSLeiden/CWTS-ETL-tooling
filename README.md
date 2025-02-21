@@ -411,7 +411,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | NPExtractorDB.jar                     | 21-07-2021 |
 | ReadData.exe                          | 4.8.0.0    |
 | VOSviewer.exe                         | 1.6.20     |
-| XmlAnalyzer.exe                       | 0.2.0      |
+| XmlAnalyzer.exe                       | 0.3.0      |
 | XmlFilesplitter.exe                   | v1.0.0.7   |
 | java.exe                              | system     |
 | matlab.exe                            | system     |
