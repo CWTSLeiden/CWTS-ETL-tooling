@@ -1,4 +1,8 @@
-﻿4.7.0.0  - 202301
+﻿4.8.0.0  - 20241217
+
+	Update .NET framework 4.8 -> 8.0
+
+4.7.0.0  - 202301
 
 	Update .NET framework 4.0 -> 4.8
 
