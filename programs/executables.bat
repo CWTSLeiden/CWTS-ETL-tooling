@@ -43,7 +43,13 @@ call :set_if_not_defined zip_exe "C:\Program Files\7-Zip\7z.exe"
 
 call :set_if_not_defined powershell_exe "Powershell.exe -NoProfile -NonInteractive -Command"
 
+call :set_if_not_defined powershell_7_exe "pwsh.exe -NoProfile -NonInteractive -Command"
+
 call :set_if_not_defined tag_remover_exe "%_programs_folder%\TagRemover\TagRemover.exe"
+
+call :set_if_not_defined csv_analyzer_exe "%_programs%\CsvAnalyzer\CsvAnalyzer.exe"
+
+call :set_if_not_defined bq_exe "bq.cmd"
 
 goto:eof
 :: =======================================================================================

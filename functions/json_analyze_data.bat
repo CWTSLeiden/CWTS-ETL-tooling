@@ -35,7 +35,7 @@ set output_folder=%~dp5
 
 call :check_variables 5 %*
 
-echo %db_name% - analyse data
+echo %db_name% - analyze data
 %json_analyzer_exe% ^
     --input_dir %source_folder% ^
     --wildcard %wildcard% ^
