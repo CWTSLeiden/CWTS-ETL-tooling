@@ -8,32 +8,29 @@ Before execution of the program it needs to be configured. This is done by:
 
 1.  Configuration file.
 
-    The name of the configuration file must be XmlFileSplitter.exe.config and it must be in the same folder as the program.
+    The name of the configuration file must be appsettings.json and it must be in the same folder as the program.
 
     Example:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-        <appSettings>
-            <add key="XmlFile" value="D:\development\projects\github\TestData\XmlFileSplitter\ListRecords_J_10.1001_224806.xml" />
-            <add key="SplitTag" value="record" />
-            <add key="CleanTags" value="citedTitle,abstracts" />
-            <add key="BlockSize" value="100" />
-            <add key="LogFolder" value="D:\development\projects\github\TestData\XmlFileSplitter\log" />
-            <add key="clean_cdata" value="true"/>
-            <add key="remove_namespaces" value="true" />
-            <add key="fix_crossref_namespaces" value="true" />   *** only for crossref data ***
-            <add key="OrderMixedValues" value="fr:assertion"/>
-            <add key="include_xml_prolog" value="false"/>
-            <add key="remove_original_files" value="false"/>
-        </appSettings>
-    </configuration>
+    {
+      "XmlFolder": "D:\\development\\projects\\github\\XmlFilleSplitter-APP\\CleanTags analyse\\Test",
+      "FindFilesRecursive": "false",
+      "SplitTag": "PubmedArticle",
+      "CleanTags": "nogeen,tag1,tag2,tag3",
+      "LogFolder": "D:\\development\\projects\\github\\XmlFilleSplitter-APP\\CleanTags analyse\\Test\\log",
+      "BlockSize": "500",
+      "clean_cdata": "false",
+      "remove_namespaces": "false",
+      "fix_crossref_namespaces": "false",
+      "include_xml_prolog": "false",
+      "remove_original_files": "false"
+    }
 
 or by
             
 2. Command line
 
-    XmlFileSplitter.exe XmlFile="ListRecords_J_10.1001_224806.xml" splittag=record BlockSize=10000 logfolder=".\splitlog" cleantags="title, subtitle, original_language_title, unstructured_citation, assertion, description, abstract, jats:abstract, ja:abstract" clean_cdata="true" remove_namespaces="true" fix_crossref_namespaces="true" OrderMixedValues="fr:assertion"
+    xmlfilesplitter.exe XmlFolder="D:\\development\\projects\\github\\XmlFilleSplitter-APP\\CleanTags analyse\\Test" FindFilesRecursive=false SplitTag=PubmedArticle CleanTags=nogeen,tag1,tag2,tag3 LogFolder="D:\\development\\projects\\github\\XmlFilleSplitter-APP\\CleanTags analyse\\Test\\log" BlockSize=500 clean_cdata=false remove_namespaces=false fix_crossref_namespaces=false include_xml_prolog=false remove_original_files=false
 
     e.g for Scopus:
 

@@ -412,7 +412,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | ReadData.exe                          | 4.8.0.0    |
 | VOSviewer.exe                         | 1.6.20     |
 | XmlAnalyzer.exe                       | 0.3.0      |
-| XmlFilesplitter.exe                   | v1.0.0.7   |
+| XmlFilesplitter.exe                   | v1.0.0.9   |
 | java.exe                              | system     |
 | matlab.exe                            | system     |
 | publicationclassification-32bit.jar   | 1.0.0      |
