@@ -418,3 +418,4 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | publicationclassification-32bit.jar   | 1.0.0      |
 | publicationclassification-64bit.jar   | 1.1.0      |
 | publicationclassificationlabeling.jar | 1.0.0      |
+| TagRemover.exe                        | 1.2.0.0    |
