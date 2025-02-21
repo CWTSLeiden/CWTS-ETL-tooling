@@ -14,10 +14,10 @@
 |grid|2020jun, 2020dec|
 |overton|2020jul, 2021may, 2023may|
 |unpaywall|2020apr, 2020oct|
-|datacitedois|2020aug, 2021aug|
+|datacitedois|2020aug, 2021aug, 2025feb|
 |dataciteclients|2021nov|
 |dataciteproviders|2021nov|
-|ror|2020oct, version8, 2024apr|
+|ror|2020oct, version8, 2024apr, 2025feb|
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
 |crossrefeventdata|2021aug|
@@ -50,6 +50,69 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.43.0.0
+
+  - Nieuwe velden DataCite dois
+    - attributes.alternateIdentifiers[seq].alternateIdentifier
+    - attributes.alternateIdentifiers[seq].alternateIdentifierType
+    - attributes.citationsOverTime[seq].total
+    - attributes.citationsOverTime[seq].year
+    - attributes.contributors[seq].lang
+    - attributes.contributors[seq].nameIdentifiers.nameIdentifier
+    - attributes.contributors[seq].nameIdentifiers.nameIdentifierScheme
+    - attributes.contributors[seq].nameIdentifiers.schemeUri
+    - attributes.creators[seq].affiliation.affiliationIdentifier
+    - attributes.creators[seq].affiliation.affiliationIdentifierScheme
+    - attributes.creators[seq].affiliation.name
+    - attributes.creators[seq].affiliation.schemeUri
+    - attributes.creators[seq].affiliation[seq].affiliationIdentifier
+    - attributes.creators[seq].affiliation[seq].affiliationIdentifierScheme
+    - attributes.creators[seq].affiliation[seq].name
+    - attributes.creators[seq].affiliation[seq].schemeUri
+    - attributes.creators[seq].nameIdentifiers.nameIdentifier
+    - attributes.creators[seq].nameIdentifiers.nameIdentifierScheme
+    - attributes.creators[seq].nameIdentifiers.schemeUri
+    - attributes.downloadsOverTime[seq].total
+    - attributes.downloadsOverTime[seq].yearMonth
+    - attributes.prefix
+    - attributes.publisher.lang
+    - attributes.publisher.name
+    - attributes.publisher.publisherIdentifier
+    - attributes.publisher.publisherIdentifierScheme
+    - attributes.publisher.schemeUri
+    - attributes.suffix
+    - attributes.viewsOverTime[seq].total
+    - attributes.viewsOverTime[seq].yearMonth
+    - relationships.citations.data[seq].id
+    - relationships.citations.data[seq].type
+    - relationships.media.data[seq].id
+    - relationships.media.data[seq].type
+    - relationships.partOf.data[seq].id
+    - relationships.partOf.data[seq].type
+    - relationships.parts.data[seq].id
+    - relationships.parts.data[seq].type
+    - relationships.provider.data.id
+    - relationships.provider.data.type
+    - relationships.references.data[seq].id
+    - relationships.references.data[seq].type
+    - relationships.versionOf.data[seq].id
+    - relationships.versionOf.data[seq].type
+    - relationships.versions.data[seq].id
+    - relationships.versions.data[seq].typee
+
+  - Verwijderde velden DataCite dois
+    - attributes.creators[seq].affiliation[seq]
+    - attributes.relatedItems[seq].firstPage[seq]
+    - attributes.relatedItems[seq].lastPage[seq]
+
+### 1.42.0.0
+
+  - Nieuwe velden ROR
+    - [seq].locations[seq].geonames_details.continent_code
+    - [seq].locations[seq].geonames_details.continent_name
+    - [seq].locations[seq].geonames_details.country_subdivision_code
+    - [seq].locations[seq].geonames_details.country_subdivision_name
 
 ### 1.41.0.0
 
