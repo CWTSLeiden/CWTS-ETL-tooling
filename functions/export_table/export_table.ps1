@@ -5,6 +5,7 @@ param(
     [Parameter(Mandatory=$true)] [System.IO.FileInfo] $input_file,
     [Parameter(Mandatory=$true)] [System.IO.FileInfo] $output_file,
     [string] $log_folder = ".\log",
+    [string] $sqlcmd_variables = "",
     [switch]$NoHeader = $false,
     [string]$Separator = "`t",
     [int]$limit = 1000000000
@@ -53,7 +54,7 @@ function export_table {
           -Server $server `
           -Database $db_name `
           -InputFile $input_file `
-          -Variable @("table_name=${table_name}", "limit=${limit}", "offset=$($offset * $limit)") `
+          -Variable (@("table_name=${table_name}", "limit=${limit}", "offset=$($offset * $limit)") + ($sqlcmd_variables -split "")) `
           | Export-Csv `
           -Path $output_file `
           -Encoding UTF8 `

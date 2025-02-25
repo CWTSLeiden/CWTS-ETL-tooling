@@ -6,6 +6,7 @@
 ::: server
 ::: export_table_include_header
 ::: export_table_include_types
+::: export_table_sqlcmd_variables (excluding -v, enclosed in "" because of spaces)
 
 :: input variables
 ::: 1. db_name:        name of the database to query
@@ -32,6 +33,7 @@ call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
     "-input_file %table_query_file%" ^
     "-output_file %output_file%" ^
     "-log_folder %log_folder%" ^
+    '-sqlcmd_variables %export_table_sqlcmd_variables%' ^
     "%no_header_arg%" ^
     "%verbose_arg%"
 
@@ -82,6 +84,7 @@ call %functions_folder%\variable.bat :create_folder    output_folder
 call %functions_folder%\variable.bat :create_folder    log_folder
 call %functions_folder%\variable.bat :default_variable export_table_include_header false
 call %functions_folder%\variable.bat :default_variable export_table_include_types  false
+call %functions_folder%\variable.bat :default_variable export_table_sqlcmd_variables ""
 
 set types_output_folder=%output_folder%\types
 if "%export_table_include_types%" == "true" (
