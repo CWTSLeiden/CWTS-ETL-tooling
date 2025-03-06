@@ -23,6 +23,8 @@ $body
 "@
 
 $errors = & "$PSScriptRoot\..\check_errors.bat" skip_pause | out-string
+$errors = $errors -replace "\x1b\[[0-9;]*m"  # strip color tags from string
+
 if ($LastExitCode -eq 0) {
     $priority = "normal"
     $body = "$body<br><br>NO ERRORS"
@@ -36,7 +38,7 @@ if (($priority -ne "high") -and $only_on_error) {
 }
 
 $smtp = "smtp.leidenuniv.nl"
-$from = "pipeline.notifier@smtp.leidenuniv.nl"
+$from = "pipeline.notifier@cwts.leidenuniv.nl"
 
 send-MailMessage -SmtpServer $smtp -Port 25 -UseSsl -To $email -From $from -Subject $subject -Body $body -BodyAsHtml -Priority $priority
 
