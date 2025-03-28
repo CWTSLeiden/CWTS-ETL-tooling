@@ -18,6 +18,7 @@ setlocal
 
 set db_name=%~1
 set process_name=%~2
+set check_errors_skip_log=true
 
 if not "%notifications%" == "true" (
     echo E-mail notifications are off
