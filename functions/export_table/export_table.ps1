@@ -50,7 +50,7 @@ function export_table {
     }
 
     $sqlcmd_variables_default = "table_name=${table_name} limit=${limit} offset=$($offset * $limit)"
-    $variables = (("${sqlcmd_variables_default} ${sqlcmd_variables}" -split " ") | % { $_.Trim() } | Where-Object { $_ })
+    $variables = ("${sqlcmd_variables_default} ${sqlcmd_variables}".Trim() -split " ")
 
     try {
         Invoke-SqlCmd `
