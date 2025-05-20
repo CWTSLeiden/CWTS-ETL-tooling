@@ -33,7 +33,7 @@ call %powershell_7_exe% "& %functions_folder%\export_table\export_table.ps1" ^
     "-input_file %table_query_file%" ^
     "-output_file %output_file%" ^
     "-log_folder %log_folder%" ^
-    '-sqlcmd_variables %export_table_sqlcmd_variables%' ^
+    "-sqlcmd_variables '%export_table_sqlcmd_variables%'" ^
     "%no_header_arg%" ^
     "%verbose_arg%"
 

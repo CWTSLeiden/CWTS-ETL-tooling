@@ -48,13 +48,17 @@ function export_table {
         $ext  = Split-Path -Path $output_file -Extension
         $output_file = "${base}\${name}_#${offset}${ext}"
     }
-    try{
+
+    $sqlcmd_variables_default = "table_name=${table_name} limit=${limit} offset=$($offset * $limit)"
+    $variables = (("${sqlcmd_variables_default} ${sqlcmd_variables}" -split " ") | % { $_.Trim() } | Where-Object { $_ })
+
+    try {
         Invoke-SqlCmd `
           -TrustServerCertificate `
           -Server $server `
           -Database $db_name `
           -InputFile $input_file `
-          -Variable (@("table_name=${table_name}", "limit=${limit}", "offset=$($offset * $limit)") + ($sqlcmd_variables -split "")) `
+          -Variable $variables `
           | Export-Csv `
           -Path $output_file `
           -Encoding UTF8 `
