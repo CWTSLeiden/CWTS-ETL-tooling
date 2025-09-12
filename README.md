@@ -18,65 +18,66 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 # Changelog
 
 ## Functions
-| function                               | version |
-|----------------------------------------|---------|
-| `add_extended_properties`              | v1.0.0  |
-| `apply_page_compression`               | v1.0.0  |
-| `archive_pipeline`                     | v1.1.0  |
-| `aws_download_folder`                  | v1.0.0  |
-| `bcp_data`                             | v1.0.2  |
-| `check_errors`                         | v0.4.0  |
-| `classification_create_classification` | v1.0.0  |
-| `classification_create_labeling`       | v1.0.0  |
-| `classification_create_vosviewer_maps` | v1.0.0  |
-| `classification_load_vosviewer_maps`   | v1.0.0  |
-| `classification_optimize_np_labels`    | v1.0.0  |
-| `clean_pipeline`                       | v1.0.0  |
-| `create_database`                      | v3.0.0  |
-| `credentials`                          | v1.0.0  |
-| `curl_download_file`                   | v1.3.0  |
-| `echo`                                 | v1.0.0  |
-| `executables`                          | v1.1.1  |
-| `export_database`                      | v1.0.0  |
-| `export_table`                         | v1.0.0  |
-| `extract_noun_phrases`                 | v1.0.0  |
-| `folder`                               | v1.0.7  |
-| `get_datetime`                         | v1.0.0  |
-| `generate_database_documentation`      | v0.1.0  |
-| `grant_access_cwts_group`              | v2.0.0  |
-| `json_analyze_data`                    | v1.0.0  |
-| `json_parse_data`                      | v1.1.1  |
-| `load_database`                        | v1.0.0  |
-| `load_bigquery_table`                  | v1.0.0  |
-| `log_runtime`                          | v0.0.1  |
-| `notify`                               | v1.0.0  |
-| `notify_errors`                        | v0.1.0  |
-| `run_sql_folder`                       | v1.1.0  |
-| `run_sql_query`                        | v1.0.0  |
-| `run_sql_script`                       | v1.1.1  |
-| `secret`                               | v1.0.0  |
-| `set_database_file_limits`             | v1.1.0  |
-| `set_database_owner`                   | v1.0.0  |
-| `shrink_database`                      | v1.0.0  |
-| `split_large_files`                    | v1.0.0  |
-| `split_process_files`                  | v1.0.1  |
-| `split_process_months`                 | v1.0.0  |
-| `split_process_numbers`                | v0.1.0  |
-| `unify_create_tables`                  | v1.0.0  |
-| `unzip_file`                           | v2.1.1  |
-| `unzip_folder`                         | v1.0.0  |
-| `validate_database`                    | v3.0.0  |
-| `validate_database_compare`            | v1.0.2  |
-| `validate_data_types`                  | v2.0.0  |
-| `validate_data_types_compare`          | v1.0.1  |
-| `variable`                             | v1.0.0  |
-| `wait`                                 | v2.0.0  |
-| `xml_analyze_data`                     | v2.1.0  |
-| `xml_analyze_data_unify`               | v1.0.0  |
-| `xml_generate_prg`                     | v2.0.0  |
-| `xml_parse_data`                       | v1.0.2  |
-| `xml_split_data`                       | v1.0.2  |
-| `zip_folder`                           | v2.0.0  |
+| function                                   | version |
+|--------------------------------------------|---------|
+| `add_extended_properties`                  | v1.0.0  |
+| `apply_page_compression`                   | v1.0.0  |
+| `archive_pipeline`                         | v1.1.0  |
+| `aws_download_folder`                      | v1.0.0  |
+| `bcp_data`                                 | v1.0.2  |
+| `check_errors`                             | v0.4.0  |
+| `classification_create_classification`     | v1.0.0  |
+| `classification_complement_classification` | v1.0.0  |
+| `classification_create_labeling`           | v1.0.0  |
+| `classification_create_vosviewer_maps`     | v1.0.0  |
+| `classification_load_vosviewer_maps`       | v1.0.0  |
+| `classification_optimize_np_labels`        | v1.0.0  |
+| `clean_pipeline`                           | v1.0.0  |
+| `create_database`                          | v3.0.0  |
+| `credentials`                              | v1.0.0  |
+| `curl_download_file`                       | v1.3.0  |
+| `echo`                                     | v1.0.0  |
+| `executables`                              | v1.1.1  |
+| `export_database`                          | v1.0.0  |
+| `export_table`                             | v1.0.0  |
+| `extract_noun_phrases`                     | v1.0.0  |
+| `folder`                                   | v1.0.7  |
+| `get_datetime`                             | v1.0.0  |
+| `generate_database_documentation`          | v0.1.0  |
+| `grant_access_cwts_group`                  | v2.0.0  |
+| `json_analyze_data`                        | v1.0.0  |
+| `json_parse_data`                          | v1.1.1  |
+| `load_database`                            | v1.0.0  |
+| `load_bigquery_table`                      | v1.0.0  |
+| `log_runtime`                              | v0.0.1  |
+| `notify`                                   | v1.0.0  |
+| `notify_errors`                            | v0.1.0  |
+| `run_sql_folder`                           | v1.1.0  |
+| `run_sql_query`                            | v1.0.0  |
+| `run_sql_script`                           | v1.1.1  |
+| `secret`                                   | v1.0.0  |
+| `set_database_file_limits`                 | v1.1.0  |
+| `set_database_owner`                       | v1.0.0  |
+| `shrink_database`                          | v1.0.0  |
+| `split_large_files`                        | v1.0.0  |
+| `split_process_files`                      | v1.0.1  |
+| `split_process_months`                     | v1.0.0  |
+| `split_process_numbers`                    | v0.1.0  |
+| `unify_create_tables`                      | v1.0.0  |
+| `unzip_file`                               | v2.1.1  |
+| `unzip_folder`                             | v1.0.0  |
+| `validate_database`                        | v3.0.0  |
+| `validate_database_compare`                | v1.0.2  |
+| `validate_data_types`                      | v2.0.0  |
+| `validate_data_types_compare`              | v1.0.1  |
+| `variable`                                 | v1.0.0  |
+| `wait`                                     | v2.0.0  |
+| `xml_analyze_data`                         | v2.1.0  |
+| `xml_analyze_data_unify`                   | v1.0.0  |
+| `xml_generate_prg`                         | v2.0.0  |
+| `xml_parse_data`                           | v1.0.2  |
+| `xml_split_data`                           | v1.0.2  |
+| `zip_folder`                               | v2.0.0  |
 
 ### add_extended_properties
 
@@ -112,6 +113,12 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Download log folder added to check errors. Download log folder will contain .log and .error files from downloading data. Some programs that can write the output to this folder are for example: AWS, Azcopy and Curl.
 
 ### classification_create_classification
+- v1.0.0
+    - parameters
+        1. `db_name`: `classification_db_name`
+        2. `log_folder`: `classification_log_folder`
+
+### classification_complement_classification
 - v1.0.0
     - parameters
         1. `db_name`: `classification_db_name`
@@ -416,21 +423,22 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ## Programs
 
-| program                               | version    |
-|---------------------------------------|------------|
-| 7z.exe                                | system     |
-| Curl.exe                              | 7.76.1     |
-| DatabaseDocumentatieGenerator.exe     | 2.1.0.0    |
-| JsonAnalyzer.exe                      | 1.1.0.0    |
-| JsonParser.exe                        | 1.43.0.0   |
-| LargeFileSplitter.exe                 | 1.0.0.0    |
-| NPExtractorDB.jar                     | 21-07-2021 |
-| ReadData.exe                          | 4.8.0.0    |
-| VOSviewer.exe                         | 1.6.20     |
-| XmlAnalyzer.exe                       | 0.3.0      |
-| XmlFilesplitter.exe                   | v1.0.0.9   |
-| java.exe                              | system     |
-| matlab.exe                            | system     |
-| publicationclassification-32bit.jar   | 1.0.0      |
-| publicationclassification-64bit.jar   | 1.1.0      |
-| publicationclassificationlabeling.jar | 1.0.0      |
+| program                                 | version    |
+|-----------------------------------------|------------|
+| 7z.exe                                  | system     |
+| Curl.exe                                | 7.76.1     |
+| DatabaseDocumentatieGenerator.exe       | 2.1.0.0    |
+| JsonAnalyzer.exe                        | 1.1.0.0    |
+| JsonParser.exe                          | 1.43.0.0   |
+| LargeFileSplitter.exe                   | 1.0.0.0    |
+| NPExtractorDB.jar                       | 21-07-2021 |
+| ReadData.exe                            | 4.8.0.0    |
+| VOSviewer.exe                           | 1.6.20     |
+| XmlAnalyzer.exe                         | 0.3.0      |
+| XmlFilesplitter.exe                     | v1.0.0.9   |
+| java.exe                                | system     |
+| matlab.exe                              | system     |
+| publicationclassification-32bit.jar     | 1.0.0      |
+| publicationclassification-64bit.jar     | 1.1.0      |
+| publicationclassificationcomplement.exe | 1.0.0      |
+| publicationclassificationlabeling.jar   | 1.0.0      |

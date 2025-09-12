@@ -90,6 +90,7 @@ call :set_if_not_defined log_folder %root_folder%\log
     call :set_if_not_defined classification_log_folder %log_folder%\classification
     call :set_if_not_defined export_log_folder %log_folder%\export
     call :set_if_not_defined publicationclassification_log_folder %log_folder%\publicationclassification
+	call :set_if_not_defined publicationclassificationcomplement_log_folder %log_folder%\publicationclassificationcomplement
     call :set_if_not_defined publicationclassificationlabeling_log_folder %log_folder%\publicationclassificationlabeling
     call :set_if_not_defined database_documentatie_generator_log_folder %log_folder%\database_documentatie_generator
     call :set_if_not_defined download_log_folder %log_folder%\download

@@ -13,6 +13,8 @@ call :set_if_not_defined publicationclassification_64bit_exe "%_programs_folder%
 
 call :set_if_not_defined publicationclassification_exe "%publicationclassification_64bit_exe%"
 
+call :set_if_not_defined publicationclassificationcomplement_exe "%_programs_folder%\publicationclassificationcomplement\publicationclassificationcomplement.exe"
+
 call :set_if_not_defined publicationclassificationlabeling_exe "%_programs_folder%\publicationclassificationlabeling\publicationclassificationlabeling.jar"
 
 call :set_if_not_defined curl_exe "%_programs_folder%\Curl\curl.exe"
