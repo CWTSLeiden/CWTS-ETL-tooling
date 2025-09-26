@@ -5,14 +5,14 @@
 |Name|Versions|
 |---|---|
 |altmetric|2019oct, 2021jun, 2022may, 2024nov|
-|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul|
+|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul, 2025jul|
 |dimensionscategories|2020apr_update, 2021jan|
 |dimensionsfundergroups|format_1|
-|dimensionsgrants|format_6, 2024jul|
+|dimensionsgrants|format_6, 2024jul, 2025jul|
 |dimensionsresearchgroups|format_1|
 |dimensionsorganisations|2023_jul, 2024jul|
 |grid|2020jun, 2020dec|
-|overton|2020jul, 2021may, 2023may|
+|overton|2020jul, 2021may, 2023may, 2024jul, 2025jun|
 |unpaywall|2020apr, 2020oct|
 |datacitedois|2020aug, 2021aug, 2025feb|
 |dataciteclients|2021nov|
@@ -21,12 +21,12 @@
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
 |crossrefeventdata|2021aug|
-|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul|
+|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul, 2025aug|
 |openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
 |openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may|
 |openalexvenues|2022jul|
 |openalexconcepts|2022jul, 2023feb, 2023jul|
-|openalexsources|2023feb, 2023jul, 2024jun|
+|openalexsources|2023feb, 2023jul, 2024jun, 2025aug|
 |openalexpublishers|2023feb, 2023jul|
 |openalexfunders|2023jul|
 |openalextopics|2024mar|
@@ -50,6 +50,51 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.46.0.0
+
+  - Nieuwe velden OpenAlex sources
+    - sources.is_indexed_in_scopus
+
+  - Nieuwe velden OpenAlex works
+    - works.citation_normalized_percentile.is_in_top_10_percent
+    - works.citation_normalized_percentile.is_in_top_1_percent
+    - works.citation_normalized_percentile.value
+    - works.fwci
+    - works.institution_assertions[seq].id
+
+  - Verwijderde velden OpenAlex works
+    - works.domains[seq].id
+    - works.fields[seq].id
+    - works.subfields[seq].id
+
+### 1.45.0.0
+
+  - Nieuwe velden Dimensions publications
+    - accepted_publication_date
+    - event.conference_location
+    - event.conference_name
+    - event.conference_sponsor
+    - pubmed_publication_types[seq]
+    - submitted_publication_date
+
+  - Nieuwe velden Dimensions grants
+    - accepted_publication_date
+    
+### 1.44.0.0
+
+  - Nieuwe velden Overton
+    - cited_policy_document_dois[seq].dois[seq]
+    - cited_policy_document_dois[seq].policy_document_id
+    - cited_policy_document_dois[seq].source
+    - llm_description
+    - llm_theme
+    - source_function[seq]
+    - source_sector[seq]
+    - source_type[seq]
+
+  - Verwijderde velden Overton
+      - generated_summary
 
 ### 1.43.0.0
 
