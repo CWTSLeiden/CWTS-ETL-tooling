@@ -4,7 +4,7 @@
 
 |Name|Versions|
 |---|---|
-|altmetric|2019oct, 2021jun, 2022may, 2024nov|
+|altmetric|2019oct, 2021jun, 2022may, 2024nov, 2026feb|
 |dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul, 2025jul|
 |dimensionscategories|2020apr_update, 2021jan|
 |dimensionsfundergroups|format_1|
@@ -14,25 +14,35 @@
 |grid|2020jun, 2020dec|
 |overton|2020jul, 2021may, 2023may, 2024jul, 2025jun|
 |unpaywall|2020apr, 2020oct|
-|datacitedois|2020aug, 2021aug, 2025feb|
+|datacitedois|2020aug, 2021aug, 2025feb, 2026jan|
 |dataciteclients|2021nov|
 |dataciteproviders|2021nov|
 |ror|2020oct, version8, 2024apr, 2025feb|
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
 |crossrefeventdata|2021aug|
-|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul, 2025aug|
-|openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar|
-|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may|
+|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul, 2025aug, 2026feb|
+|openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2026feb|
+|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may, 2026feb|
 |openalexvenues|2022jul|
 |openalexconcepts|2022jul, 2023feb, 2023jul|
-|openalexsources|2023feb, 2023jul, 2024jun, 2025aug|
-|openalexpublishers|2023feb, 2023jul|
-|openalexfunders|2023jul|
+|openalexsources|2023feb, 2023jul, 2024jun, 2025aug, 2026feb|
+|openalexpublishers|2023feb, 2023jul, 2026feb|
+|openalexfunders|2023jul, 2026feb|
 |openalextopics|2024mar|
 |openalexdomains|2024mar|
 |openalexfields|2024mar|
 |openalexsubfields|2024mar|
+|openalexawards|2026feb|
+|openalexcontinents|2026feb|
+|openalexcountries|2026feb|
+|openalexinstitutiontypes|2026feb|
+|openalexkeywords|2026feb|
+|openalexlanguages|2026feb|
+|openalexlicenses|2026feb|
+|openalexsdgs|2026feb|
+|openalexsourcetypes|2026feb|
+|openalexworktypes|2026feb|
 |twitter|2022jul|
 |bso|2023sep|
 |openaireorganization|2024aug|2025jan|
@@ -50,6 +60,297 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.49.0.0
+  - Nieuwe velden OpenAlex authors
+    - authors.summary_stats.2yr_mean_citedness
+    - authors.summary_stats.h_index
+    - authors.summary_stats.i10_index
+    
+  - Nieuwe velden OpenAlex awards
+    - awards.amount
+    - awards.created_date
+    - awards.currency
+    - awards.description
+    - awards.display_name
+    - awards.doi
+    - awards.end_date
+    - awards.end_year
+    - awards.funded_outputs[seq]
+    - awards.funded_outputs_count
+    - awards.funder.id
+    - awards.funder_award_id
+    - awards.funder_scheme
+    - awards.funding_type
+    - awards.id
+    - awards.investigators[seq].affiliation.country
+    - awards.investigators[seq].affiliation.name
+    - awards.investigators[seq].family_name
+    - awards.investigators[seq].given_name
+    - awards.landing_page_url
+    - awards.lead_investigator
+    - awards.lead_investigator.affiliation.country
+    - awards.lead_investigator.affiliation.ids
+    - awards.lead_investigator.affiliation.ids[seq].asserted_by
+    - awards.lead_investigator.affiliation.ids[seq].id
+    - awards.lead_investigator.affiliation.ids[seq].type
+    - awards.lead_investigator.affiliation.name
+    - awards.lead_investigator.family_name
+    - awards.lead_investigator.given_name
+    - awards.lead_investigator.orcid
+    - awards.lead_investigator.role_start
+    - awards.provenance
+    - awards.start_date
+    - awards.start_year
+    - awards.updated_date
+
+  - Nieuwe velden OpenAlex continents
+    - continents.countries[seq].id
+    - continents.created_date
+    - continents.description
+    - continents.display_name
+    - continents.display_name_alternatives[seq]
+    - continents.id
+    - continents.ids.wikidata
+    - continents.updated_date
+
+  - Nieuwe velden OpenAlex countries
+    - countries.cited_by_count
+    - countries.continent.id
+    - countries.country_code
+    - countries.created_date
+    - countries.description
+    - countries.display_name
+    - countries.display_name_alternatives[seq]
+    - countries.id
+    - countries.ids.iso
+    - countries.ids.wikidata
+    - countries.ids.wikipedia
+    - countries.is_global_south
+    - countries.updated_date
+    - countries.works_count
+
+  - Nieuwe velden OpenAlex funders
+    - funders.awards_count
+    
+  - Nieuwe velden OpenAlex institutions
+    - institutions.summary_stats.2yr_mean_citedness
+    - institutions.summary_stats.h_index
+    - institutions.summary_stats.i10_index
+  
+  - Nieuwe velden OpenAlex institutiontypes
+    - institution-types.cited_by_count
+    - institution-types.created_date
+    - institution-types.display_name
+    - institution-types.id
+    - institution-types.updated_date
+    - institution-types.works_count
+
+  - Nieuwe velden OpenAlex keywords
+    - keywords.cited_by_count
+    - keywords.created_date
+    - keywords.display_name
+    - keywords.id
+    - keywords.updated_date
+    - keywords.works_count
+
+  - Nieuwe velden OpenAlex languages
+    - languages.cited_by_count
+    - languages.created_date
+    - languages.display_name
+    - languages.id
+    - languages.updated_date
+    - languages.works_count
+
+  - Nieuwe velden OpenAlex licences
+    - licenses.cited_by_count
+    - licenses.created_date
+    - licenses.description
+    - licenses.display_name
+    - licenses.id
+    - licenses.updated_date
+    - licenses.url
+    - licenses.works_count
+    
+  - Nieuwe velden OpenAlex sdgs
+    - sdgs.cited_by_count
+    - sdgs.created_date
+    - sdgs.description
+    - sdgs.display_name
+    - sdgs.id
+    - sdgs.ids.un
+    - sdgs.ids.wikidata
+    - sdgs.image_thumbnail_url
+    - sdgs.image_url
+    - sdgs.updated_date
+    - sdgs.works_count
+
+  - Nieuwe velden OpenAlex sources
+    - sources.first_publication_year
+    - sources.is_high_oa_rate
+    - sources.is_high_oa_rate_since_year
+    - sources.is_in_doaj_since_year
+    - sources.is_in_scielo
+    - sources.is_ojs
+    - sources.last_publication_year
+    - sources.oa_flip_year
+    - sources.oa_works_count
+    - sources.summary_stats.2yr_mean_citedness
+    - sources.summary_stats.h_index
+    - sources.summary_stats.i10_index
+
+  - Nieuwe velden OpenAlex sourcetypes
+    - source-types..cited_by_count
+    - source-types..created_date
+    - source-types..display_name
+    - source-types..id
+    - source-types..updated_date
+    - source-types..works_count
+    
+  - Nieuwe velden OpenAlex works
+    - works.awards[seq].id
+    - works.best_oa_location.id
+    - works.best_oa_location.provenance
+    - works.best_oa_location.raw_source_name
+    - works.best_oa_location.raw_type
+    - works.citation_normalized_percentile
+    - works.citation_normalized_percentile.is_in_top_1_percent
+    - works.citation_normalized_percentile.is_in_top_10_percent
+    - works.citation_normalized_percentile.value
+    - works.funders[seq].id
+    - works.fwci
+    - works.has_content.grobid_xml
+    - works.has_content.pdf
+    - works.is_xpac
+    - works.locations[seq].id
+    - works.locations[seq].provenance
+    - works.locations[seq].raw_source_name
+    - works.locations[seq].raw_type
+    - works.primary_location.id
+    - works.primary_location.provenance
+    - works.primary_location.raw_source_name
+    - works.primary_location.raw_type
+    - works.cited_by_percentile_year.max
+    - works.cited_by_percentile_year.min
+
+  - Nieuwe velden OpenAlex worktypes
+    - works-types.cited_by_count
+    - works-types.created_date
+    - works-types.description
+    - works-types.display_name
+    - works-types.id
+    - works-types.updated_date
+    - works-types.works_count
+
+  - Verwijderde velden OpenAlex authors
+    - authors.ids.twitter
+    - authors.ids.wikipedia
+    - authors.last_known_institution.id
+ 
+  - Verwijderde velden OpenAlex concepts
+    - concepts.ids.mag
+ 
+  - Verwijderde velden OpenAlex institutions
+    - institutions.ids.mag
+
+  - Verwijderde velden OpenAlex publishers 
+    - parent_publisher.display_name     
+    - publishers.source_count
+ 
+  - Verwijderde velden OpenAlex sources
+    - sources.abbreviated_title
+    - sources.ids.fatcat
+    - sources.is_indexed_in_scopus
+  
+  - Verwijderde velden Works 
+    - work.concepts_count
+    - work.doi_registration_agency
+    - work.fulltext_origin
+    - work.type_crossref
+    - work.topics_count
+    - work.apc_list.provenance
+    - work.apc_paid.provenance
+    - work.ids.arxiv_id
+    - work.ids.pmcid
+    - work.best_oa_location.doi
+    - work.primary_location.doi
+    - work.location.doi  
+
+### 1.48.0.0
+
+  - Nieuwe velden altmetric
+    - citation.authors_details[seq].full_name
+    - citation.authors_details[seq].researcher_id
+    - counts.bluesky.posts_count
+    - counts.bluesky.unique_users[seq]
+    - counts.bluesky.unique_users_count
+    - counts.podcasts.posts_count
+    - counts.podcasts.unique_users[seq]
+    - counts.podcasts.unique_users_count
+    - demographics.users.bluesky.cohorts.Members of the public
+    - demographics.users.bluesky.cohorts.Practitioners (doctors, other healthcare professionals)
+    - demographics.users.bluesky.cohorts.Science communicators (journalists, bloggers, editors)
+    - demographics.users.bluesky.cohorts.Scientists
+    - demographics.users.mendeley.by_discipline.Law
+    - demographics.users.mendeley.by_discipline.Sports and Recreation
+    - posts.bluesky[seq].author.bluesky_profile_id
+    - posts.bluesky[seq].author.description
+    - posts.bluesky[seq].author.followers
+    - posts.bluesky[seq].author.id_on_source
+    - posts.bluesky[seq].author.image
+    - posts.bluesky[seq].author.name
+    - posts.bluesky[seq].author.url
+    - posts.bluesky[seq].bluesky_post_id
+    - posts.bluesky[seq].citation_ids[seq]
+    - posts.bluesky[seq].license
+    - posts.bluesky[seq].posted_on
+    - posts.bluesky[seq].sentiment.value
+    - posts.bluesky[seq].sentiment.version
+    - posts.bluesky[seq].summary
+    - posts.bluesky[seq].url
+    - posts.podcasts[seq].author.image
+    - posts.podcasts[seq].author.name
+    - posts.podcasts[seq].author.url
+    - posts.podcasts[seq].citation_ids[seq]
+    - posts.podcasts[seq].license
+    - posts.podcasts[seq].posted_on
+    - posts.podcasts[seq].summary
+    - posts.podcasts[seq].title
+    - posts.podcasts[seq].url
+    - posts.policy[seq].collections[seq].name
+    - posts.policy[seq].collections[seq].url
+    - sentiments.v1.counts.-1
+    - sentiments.v1.counts.-2
+    - sentiments.v1.counts.-3
+    - sentiments.v1.counts.0
+    - sentiments.v1.counts.1
+    - sentiments.v1.counts.2
+    - sentiments.v1.counts.3
+
+  - verwijderde velden altmetric
+    - posts.linkedin[seq].author.description
+    - posts.linkedin[seq].author.image
+    - posts.linkedin[seq].author.name
+    - posts.twitter[seq].author.description
+    - posts.twitter[seq].author.followers
+    - posts.twitter[seq].author.geo.country
+    - posts.twitter[seq].author.geo.geocoded_at
+    - posts.twitter[seq].author.geo.ln
+    - posts.twitter[seq].author.geo.lt
+    - posts.twitter[seq].author.geo.provider
+    - posts.twitter[seq].author.id_on_source
+    - posts.twitter[seq].author.image
+    - posts.twitter[seq].author.name
+    - posts.twitter[seq].author.url
+    - posts.twitter[seq].posted_on
+    - posts.twitter[seq].summary
+    - posts.twitter[seq].url
+  
+### 1.47.0.0
+
+  - Nieuwe velden Datacite dois
+    - attributes.geoLocations[seq].geoLocationPolygon[seq].inPolygonPoint.pointLatitude
+    - attributes.geoLocations[seq].geoLocationPolygon[seq].inPolygonPoint.pointLongitude
 
 ### 1.46.0.0
 
