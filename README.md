@@ -42,6 +42,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `export_table`                             | v1.0.0  |
 | `extract_noun_phrases`                     | v1.0.0  |
 | `folder`                                   | v1.0.7  |
+| `gcloud_login`                             | dev     |
 | `get_datetime`                             | v1.0.0  |
 | `generate_database_documentation`          | v0.1.0  |
 | `grant_access_cwts_group`                  | v2.0.0  |
@@ -215,6 +216,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - add `%read_json_tags_data_folder%`
 - v1.0.1
     - add `%files_data_folder%`
+
+### gcloud_login
 
 ### get_datetime
 
