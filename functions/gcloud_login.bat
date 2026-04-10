@@ -30,6 +30,14 @@ goto:eof
 :check_variables
 :: =======================================================================================
 
+:: set functions_folder to location of this script
+set functions_folder=%~dp0
+:: set program_folder to relative location of this script
+set programs_folder=%~dp0\..\programs
+
+:: get executable paths
+call %programs_folder%\executables.bat
+
 call %functions_folder%\variable.bat :check_variable gcloud_exe
 
 goto:eof
