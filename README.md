@@ -26,6 +26,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `aws_download_folder`                      | v1.0.0  |
 | `bcp_data`                                 | v1.0.2  |
 | `check_errors`                             | v0.4.0  |
+| `check_submodule`                          | dev     |
 | `classification_create_classification`     | v1.0.0  |
 | `classification_complement_classification` | v1.0.0  |
 | `classification_create_labeling`           | v1.0.0  |
@@ -113,6 +114,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - `%noun_phrase_extractor_log_folder%` added for NBExtractorDB
 - v0.2.0
     - Download log folder added to check errors. Download log folder will contain .log and .error files from downloading data. Some programs that can write the output to this folder are for example: AWS, Azcopy and Curl.
+
+### check_submodule
 
 ### classification_create_classification
 - v1.0.0
