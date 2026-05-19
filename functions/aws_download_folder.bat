@@ -31,6 +31,7 @@ call %functions%\get_datetime.bat timestamp "datetime"
 
 set AWS_ACCESS_KEY_ID=%aws_access_key_id%
 set AWS_SECRET_ACCESS_KEY=%aws_secret_access_key%
+set AWS_CONFIG_FILE=%aws_config_file%
 
 aws s3 sync ^
     --no-progress ^
@@ -59,7 +60,7 @@ set programs_folder=%~dp0\..\programs
 call %functions_folder%\variable.bat :check_parameters %*
 
 :: Validate global variables
-if not defined aws_access_key_id (
+if not defined aws_access_key_id if not defined aws_config_file (
    set no_sign_request_arg=--no-sign-request
 )
 :: Validate input variables
