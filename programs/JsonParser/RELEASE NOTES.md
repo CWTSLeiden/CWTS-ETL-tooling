@@ -12,7 +12,7 @@
 |dimensionsresearchgroups|format_1|
 |dimensionsorganisations|2023_jul, 2024jul|
 |grid|2020jun, 2020dec|
-|overton|2020jul, 2021may, 2023may, 2024jul, 2025jun|
+|overton|2020jul, 2021may, 2023may, 2024jul, 2025jun, 2026jun|
 |unpaywall|2020apr, 2020oct|
 |datacitedois|2020aug, 2021aug, 2025feb, 2026jan|
 |dataciteclients|2021nov|
@@ -60,6 +60,18 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.50.0.0
+  - Nieuwe velden Overton
+    - cofog_divisions[seq]
+    - mentions_people[seq].snippets[seq].page
+    - mentions_people[seq].snippets[seq].snippet
+
+  - Verwijderde velden OpenAlex authors
+    - authors.ids.scopus
+
+  - Verwijderde velden OpenAlex funders
+    - funders.grants_count
 
 ### 1.49.0.0
   - Nieuwe velden OpenAlex authors
