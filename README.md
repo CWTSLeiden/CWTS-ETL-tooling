@@ -25,6 +25,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `archive_pipeline`                         | v1.1.0  |
 | `aws_download_folder`                      | v1.1.0  |
 | `bcp_data`                                 | v1.0.2  |
+| `citation_matching`                        | dev     |
 | `check_errors`                             | v0.4.0  |
 | `check_submodule`                          | dev     |
 | `classification_create_classification`     | v1.0.0  |
@@ -100,6 +101,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - Remove wait.bat :sleep_subprocess
 - v1.0.1
     - Add wait.bat :sleep_subprocess
+
+### citation_matching
 
 ### check_errors
 - v0.4.0

@@ -117,24 +117,6 @@ goto:eof
 
 
 :: =======================================================================================
-:default_variable
-:: Check if variable is defined, if not set it to a default value.
-
-:: Input variables
-::: 1. var:   variable name
-::: 2. value: default value
-:: =======================================================================================
-set _var=%~1
-set _value=%~2
-if not defined %_var% (
-    set %_var%=%_value%
-)
-call %functions%\echo.bat :verbose "Variable value: %_var%=!%_var%!"
-goto:eof
-:: =======================================================================================
-
-
-:: =======================================================================================
 :check_folder
 :: Check if folder variable is defined and if folder path exists.
 

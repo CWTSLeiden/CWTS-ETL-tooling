@@ -53,6 +53,9 @@ call :set_if_not_defined gcloud_exe "gcloud"
 
 call :set_if_not_defined bq_exe "bq.cmd"
 
+call :set_if_not_defined citationmatching_structured_exe "%_programs_folder%\Citation-Matching\crossref_reference_match_sbmv_structured.exe"
+call :set_if_not_defined citationmatching_unstructured_exe "%_programs_folder%\Citation-Matching\crossref_reference_match_sbmv_unstructured.exe"
+
 goto:eof
 :: =======================================================================================
 
