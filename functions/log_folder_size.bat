@@ -22,7 +22,7 @@ call :check_variables 2 %*
 echo Log folder sizes: %target_folder%
 
 %powershell_exe% ^
-    "Get-ChildItem -Path '%target_folder%' -Directory | Sort-Object -Property Name | ForEach-Object { $size = (Get-ChildItem -Path $_.FullName -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum; if ($null -eq $size) { $size = 0 }; $gb = [math]::Round($size / 1GB, 2); '{0}	{1}Gb' -f $_.Name, $gb } | Out-File -FilePath '%log_file%' -Encoding utf8"
+    "$sizes = Get-ChildItem -Path '%target_folder%' -Directory | Sort-Object -Property Name | ForEach-Object { $size = (Get-ChildItem -Path $_.FullName -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum; if ($null -eq $size) { $size = 0 }; [PSCustomObject]@{ Name = $_.Name; Bytes = $size } }; $total = ($sizes | Measure-Object -Property Bytes -Sum).Sum; $lines = @(); $sizes | ForEach-Object { $lines += ('{0}	{1}Gb' -f $_.Name, [math]::Round($_.Bytes / 1GB, 2)) }; $lines += 'TOTAL	{0}Gb' -f [math]::Round($total / 1GB, 2); $lines | Out-File -FilePath '%log_file%' -Encoding utf8"
 
 call %functions_folder%\echo.bat :verbose "Size of folders in %target_folder%:"
 for /f "usebackq delims=" %%l in ("%log_file%") do (

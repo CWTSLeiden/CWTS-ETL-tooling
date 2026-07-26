@@ -27,6 +27,7 @@ for %%d in (%databases%) do (
         echo %%d	%%s>> "%log_file%"
     )
 )
+%powershell_exe% "$total = 0; Get-Content '%log_file%' | ForEach-Object { $total += [decimal]($_ -replace '^.*\t','') }; 'TOTAL	{0}' -f $total | Out-File -FilePath '%log_file%' -Encoding utf8 -Append"
 
 call %functions_folder%\echo.bat :verbose "Size of databases:"
 for /f "usebackq delims=" %%l in ("%log_file%") do (
