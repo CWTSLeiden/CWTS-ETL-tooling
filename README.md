@@ -52,6 +52,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `json_parse_data`                          | v1.1.1  |
 | `load_database`                            | v1.0.0  |
 | `load_bigquery_table`                      | v1.0.0  |
+| `log_database_size`                        | dev     |
+| `log_folder_size`                          | dev     |
 | `log_runtime`                              | v0.0.1  |
 | `notify`                                   | v1.0.0  |
 | `notify_errors`                            | v0.1.0  |
@@ -262,6 +264,10 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - rename `:table_scripts` to `:run_table_scripts`
     - rename `:post_processing_scripts` to `:run_post_processing_scripts`
     - rename function `load_relational_database.bat` to `load_database.bat`
+
+### log_database_size
+
+### log_folder_size
 
 ### log_runtime
 
