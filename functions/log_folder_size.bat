@@ -22,7 +22,12 @@ call :check_variables 2 %*
 echo Log folder sizes: %target_folder%
 
 %powershell_exe% ^
-    "Get-ChildItem -Path '%target_folder%' -Directory | Sort-Object -Property Name | ForEach-Object { $size = (Get-ChildItem -Path $_.FullName -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum; if ($null -eq $size) { $size = 0 }; $gb = [math]::Round($size / 1GB, 2); '{0}`t{1}' -f $_.Name, $gb } | Out-File -FilePath '%log_file%' -Encoding utf8"
+    "Get-ChildItem -Path '%target_folder%' -Directory | Sort-Object -Property Name | ForEach-Object { $size = (Get-ChildItem -Path $_.FullName -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum; if ($null -eq $size) { $size = 0 }; $gb = [math]::Round($size / 1GB, 2); '{0}	{1}Gb' -f $_.Name, $gb } | Out-File -FilePath '%log_file%' -Encoding utf8"
+
+call %functions_folder%\echo.bat :verbose "Size of folders in %target_folder%:"
+for /f "usebackq delims=" %%l in ("%log_file%") do (
+    call %functions_folder%\echo.bat :verbose "%%l"
+)
 
 endlocal
 goto:eof

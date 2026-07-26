@@ -28,6 +28,11 @@ for %%d in (%databases%) do (
     )
 )
 
+call %functions_folder%\echo.bat :verbose "Size of databases:"
+for /f "usebackq delims=" %%l in ("%log_file%") do (
+    call %functions_folder%\echo.bat :verbose "%%l"
+)
+
 endlocal
 goto:eof
 :: =======================================================================================
