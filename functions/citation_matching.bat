@@ -41,14 +41,13 @@ if defined output_table (
 if defined output_file (
     call %functions_folder%\echo.bat :verbose "Writing results to %output_file%"
 )
-call %functions_folder%\echo.bat :verbose ""
+
 call %citationmatching_exe% ^
     --api_key %citation_matching_crossref_api_key% ^
     --email %email% ^
     --threshold %citation_matching_threshold% ^
     --number_of_processes %number_of_processes% ^
     --batch_size %citation_matching_batch_size% ^
-    --continue_process %citation_matching_continue% ^
     --server %server% ^
     --input_table %input_db_table% ^
     --input_columns %input_db_id_column%,%input_db_ref_column% ^
@@ -56,7 +55,8 @@ call %citationmatching_exe% ^
     --output_file %output_file% ^
     --log_file %log_folder%/citation_matching.log ^
     --error_file %log_folder%/citation_matching.error ^
-    "%verbose_arg%"
+    %continue_process_arg% ^
+    %verbose_arg%
 
 endlocal
 goto:eof
@@ -87,13 +87,10 @@ call %functions_folder%\variable.bat :default_variable citation_matching_thresho
 call %functions_folder%\variable.bat :default_variable citation_matching_batch_size 1000
 call %functions_folder%\variable.bat :default_variable citation_matching_continue false
 
-for /f "tokens=2 delims=\" %a in ("%db_owner%") do set username=%a
+for /f "tokens=2 delims=\" %%a in ("%db_owner%") do set username=%%a
 set email=%username%@vuw.leidenuniv.nl
 
 :: Validate input variables
-call %functions_folder%\variable.bat :check_variable db_name
-call %functions_folder%\variable.bat :create_folder  log_folder
-
 call %functions_folder%\variable.bat :check_variable matching_type
 if not "%matching_type%"=="structured" if not "%matching_type%"=="unstructured" (
     echo error - wrong matching type: %matching_type%
@@ -106,8 +103,11 @@ call %functions_folder%\variable.bat :check_variable output_db_table
 call %functions_folder%\variable.bat :check_variable output_file
 call %functions_folder%\variable.bat :create_folder  log_folder
 
-if defined verbose (
-    set "verbose_arg=--verbose True"
+if "%verbose%"=="true" (
+    set "verbose_arg=--verbose"
+)
+if "%citation_matching_continue%"=="true" (
+    set "continue_process_arg=--continue_process"
 )
 
 :: Validate executables
