@@ -36,6 +36,13 @@ echo Unzip %source_file_name_ext% to %target_folder%
 
 "%zip_exe%" %zip_action% "%source_file%" -o"%target_folder%" %zip_args% -aou -y -bsp0 -bso0 -bse1 > "%zip_log_folder%\extract_%source_file_name%.error"
 
+::: Remove .error log file if it is empty
+if exist "%zip_log_folder%\extract_%source_file_name%.error" (
+    for %%f in ("%zip_log_folder%\extract_%source_file_name%.error") do (
+        if %%~zf == 0 ( del "%zip_log_folder%\extract_%source_file_name%.error" )
+    )
+)
+
 call %functions_folder%\wait.bat :send %~f0
 endlocal
 goto:eof
