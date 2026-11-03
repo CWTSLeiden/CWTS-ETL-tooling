@@ -5,10 +5,10 @@
 |Name|Versions|
 |---|---|
 |altmetric|2019oct, 2021jun, 2022may, 2024nov, 2026feb|
-|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul, 2025jul|
+|dimensionspublications|2020apr, 2020apr_update, 2021jan, format_7, format_8, format_9, 2024jul, 2025jul, 2026jul|
 |dimensionscategories|2020apr_update, 2021jan|
 |dimensionsfundergroups|format_1|
-|dimensionsgrants|format_6, 2024jul, 2025jul|
+|dimensionsgrants|format_6, 2024jul, 2025jul, 2026jul|
 |dimensionsresearchgroups|format_1|
 |dimensionsorganisations|2023_jul, 2024jul|
 |grid|2020jun, 2020dec|
@@ -20,20 +20,20 @@
 |ror|2020oct, version8, 2024apr, 2025feb|
 |crossrefjournals|2021jan|
 |crossrefmembers|2021jan|
-|crossrefeventdata|2021aug|
-|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul, 2025aug, 2026feb|
-|openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2026feb|
-|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may, 2026feb|
+|crossrefeventdata|2021aug, 2026jun|
+|openalexworks|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2024may, 2024jun, 2024jul, 2025aug, 2026feb, 2026aug|
+|openalexauthors|2022jul, 2023feb, 2023jul, 2023nov, 2024mar, 2026feb, 2026aug|
+|openalexinstitutions|2022jul, 2023feb, 2023jul, 2023nov, 2024may, 2026feb, 2026aug|
 |openalexvenues|2022jul|
-|openalexconcepts|2022jul, 2023feb, 2023jul|
-|openalexsources|2023feb, 2023jul, 2024jun, 2025aug, 2026feb|
-|openalexpublishers|2023feb, 2023jul, 2026feb|
-|openalexfunders|2023jul, 2026feb|
+|openalexconcepts|2022jul, 2023feb, 2023jul, 2026aug|
+|openalexsources|2023feb, 2023jul, 2024jun, 2025aug, 2026feb, 2026aug|
+|openalexpublishers|2023feb, 2023jul, 2026feb, 2026aug|
+|openalexfunders|2023jul, 2026feb, 2026aug|
 |openalextopics|2024mar|
 |openalexdomains|2024mar|
 |openalexfields|2024mar|
 |openalexsubfields|2024mar|
-|openalexawards|2026feb|
+|openalexawards|2026feb, 2026aug|
 |openalexcontinents|2026feb|
 |openalexcountries|2026feb|
 |openalexinstitutiontypes|2026feb|
@@ -60,6 +60,210 @@ OpenAlex documentatie: https://docs.openalex.org/
 
 
 ## Releases
+
+### 1.53.0.0
+
+  - Nieuwe velden OpenAlex authors
+    - full_name
+    - raw_author_names[seq]
+
+  - Nieuwe velden OpenAlex awards
+    - co_lead_investigator.affiliation.country
+    - co_lead_investigator.affiliation.ids
+    - co_lead_investigator.affiliation.ids[seq].asserted_by
+    - co_lead_investigator.affiliation.ids[seq].id
+    - co_lead_investigator.affiliation.ids[seq].type
+    - co_lead_investigator.affiliation.name
+    - co_lead_investigator.family_name
+    - co_lead_investigator.given_name
+    - co_lead_investigator.orcid
+    - co_lead_investigator.role_start
+    - institution_awarded[seq].id
+    - investigators[seq].affiliation.ids
+    - investigators[seq].affiliation.ids[seq].asserted_by
+    - investigators[seq].affiliation.ids[seq].id
+    - investigators[seq].affiliation.ids[seq].type
+    - investigators[seq].orcid
+    - investigators[seq].role_start
+    - primary_topic.id
+    - primary_topic.score
+    - topics[seq].id
+    - topics[seq].score
+
+  - Verwijderde velden OpenAlex awards
+    - lead_investigator
+
+  - Nieuwe velden OpenAlex funders
+    - summary_stats.2yr_mean_citedness
+    - summary_stats.h_index
+    - summary_stats.i10_index
+
+  - Nieuwe velden OpenAlex institutions
+    - status
+    - type_id
+
+  - Nieuwe velden OpenAlex publishers
+    - summary_stats.2yr_mean_citedness
+    - summary_stats.h_index
+    - summary_stats.i10_index
+
+  - Nieuwe velden OpenAlex sources
+    - apc_usd_by_year[seq].price
+    - apc_usd_by_year[seq].year
+    - ids.issn
+    - ids.issn[seq]
+    - is_preprint_repository
+    - issn_l
+
+  - Nieuwe velden OpenAlex works
+    - authorships[seq].raw_orcid
+
+### 1.52.0.0
+
+  - Nieuwe velden Dimensions publications
+    - flags.is_retracted
+    - flags.publication_updates[seq].date
+    - flags.publication_updates[seq].notice.doi
+    - flags.publication_updates[seq].notice.id
+    - flags.publication_updates[seq].reasons[seq]
+    - flags.publication_updates[seq].source
+    - flags.publication_updates[seq].type
+    - flags.retraction_date
+
+  - Verwijderde velden Dimensions publications
+    - author_affiliations[seq].corresponding
+    - author_affiliations[seq].first_name
+    - author_affiliations[seq].grid_ids[seq]
+    - author_affiliations[seq].last_name
+    - author_affiliations[seq].researcher_id
+    - concepts[seq]
+    - concepts_scores[seq].concept
+    - concepts_scores[seq].relevance
+    - created_in_dimensions
+    - format
+    - mesh.ui[seq]
+    - open_access_categories[seq]
+    - pubmed_publication_types[seq]
+    - repository_dois[seq]
+
+  - Verwijderde velden Dimensions grants
+    - concepts_scores[seq].concept
+    - concepts_scores[seq].relevance
+    - for[seq].first_level.id
+    - for[seq].first_level.name
+    - for[seq].second_level.id
+    - for[seq].second_level.name
+
+### 1.51.0.0
+  - Verwijderde velden Crossref Eventdata
+    - message-type
+    - message.events[seq].evidence-record
+    - message.events[seq].evidence_record
+    - message.events[seq].jwt
+    - message.events[seq].message_action
+    - message.events[seq].obj.@id
+    - message.events[seq].obj.@type
+    - message.events[seq].obj.author[seq].@id
+    - message.events[seq].obj.author[seq].@type
+    - message.events[seq].obj.author[seq].affiliation.@type
+    - message.events[seq].obj.author[seq].affiliation.name
+    - message.events[seq].obj.author[seq].familyName
+    - message.events[seq].obj.author[seq].givenName
+    - message.events[seq].obj.author[seq].name
+    - message.events[seq].obj.dateModified
+    - message.events[seq].obj.datePublished
+    - message.events[seq].obj.funder.@id
+    - message.events[seq].obj.funder.@type
+    - message.events[seq].obj.funder.name
+    - message.events[seq].obj.funder[seq].@id
+    - message.events[seq].obj.funder[seq].@type
+    - message.events[seq].obj.funder[seq].name
+    - message.events[seq].obj.includedInDataCatalog.@id
+    - message.events[seq].obj.includedInDataCatalog.@type
+    - message.events[seq].obj.includedInDataCatalog.name
+    - message.events[seq].obj.issueNumber
+    - message.events[seq].obj.name
+    - message.events[seq].obj.pagination
+    - message.events[seq].obj.periodical.@id
+    - message.events[seq].obj.periodical.issn
+    - message.events[seq].obj.periodical.name
+    - message.events[seq].obj.proxyIdentifiers[seq]
+    - message.events[seq].obj.publisher.@type
+    - message.events[seq].obj.registrantId
+    - message.events[seq].obj.version
+    - message.events[seq].obj.volumeNumber
+    - message.events[seq].subj.@id
+    - message.events[seq].subj.@type
+    - message.events[seq].subj.author[seq].@id
+    - message.events[seq].subj.author[seq].@type
+    - message.events[seq].subj.author[seq].affiliation.@type
+    - message.events[seq].subj.author[seq].affiliation.name
+    - message.events[seq].subj.author[seq].familyName
+    - message.events[seq].subj.author[seq].givenName
+    - message.events[seq].subj.author[seq].name
+    - message.events[seq].subj.dateModified
+    - message.events[seq].subj.datePublished
+    - message.events[seq].subj.funder.@id
+    - message.events[seq].subj.funder.@type
+    - message.events[seq].subj.funder.name
+    - message.events[seq].subj.funder[seq].@id
+    - message.events[seq].subj.funder[seq].@type
+    - message.events[seq].subj.funder[seq].name
+    - message.events[seq].subj.includedInDataCatalog.@id
+    - message.events[seq].subj.includedInDataCatalog.@type
+    - message.events[seq].subj.includedInDataCatalog.name
+    - message.events[seq].subj.jurisdiction
+    - message.events[seq].subj.name
+    - message.events[seq].subj.periodical.@id
+    - message.events[seq].subj.periodical.@type
+    - message.events[seq].subj.periodical.name
+    - message.events[seq].subj.proxyIdentifiers[seq]
+    - message.events[seq].subj.publisher.name
+    - message.events[seq].subj.registrantId
+    - message.events[seq].subj.version
+    - message.events[seq].subj.work_subtype_id
+    - message.events[seq].terms
+    - message.events[seq].timestamp
+    - message.events[seq].updated
+    - message.events[seq].updated-date
+    - message.events[seq].updated-reason
+    - message.events[seq].updated_date
+    - message.events[seq].updated_reason
+    - message.items-per-page
+    - message.next-cursor
+    - message.total-results
+    - status
+
+  - Aangepaste velden Crossref Eventdata
+    - action
+    - id
+    - license
+    - obj.method
+    - obj.pid
+    - obj.url
+    - obj.verification
+    - obj.work-type-id
+    - obj.work_type_id
+    - obj_id
+    - occurred_at
+    - relation_type_id
+    - source_id
+    - source_token
+    - subj.alternative-id
+    - subj.alternative_id
+    - subj.api-url
+    - subj.author.id
+    - subj.author.name
+    - subj.author.url
+    - subj.issued
+    - subj.json-url
+    - subj.pid
+    - subj.title
+    - subj.type
+    - subj.url
+    - subj.work-type
+    - subj.work_type_id
+    - subj_id
 
 ### 1.50.0.0
   - Nieuwe velden Overton
