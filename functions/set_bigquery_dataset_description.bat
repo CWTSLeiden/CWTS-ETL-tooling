@@ -22,12 +22,13 @@ call :check_variables 3 %*
 
 :: Get database description
 set "get_description=Import-Csv %documentation_file% -Delimiter `t | Where { $_.description_type -eq 'database' } | Select -Expand description"
-for /f "delims=" %%t in ('%powershell_exe% "%get_description%"') do set db_description=%%t
+for /f "delims=" %%t in ('%powershell_exe% "%get_description%"') do set description=%%t
 
 :: Set dataset description
-if defined db_description (
+if defined description (
     call %bq_exe% update ^
-        --description="%db_description" ^
+        --project_id=%bigquery_project% ^
+        --description="%description:<br>= %" ^
         %bigquery_path% ^
         > %log_folder%\bq_set_database_description.log
 ) else (
@@ -62,6 +63,16 @@ call %functions_folder%\variable.bat :check_variable   powershell_exe
 call %functions_folder%\variable.bat :check_variable   bigquery_path
 call %functions_folder%\variable.bat :check_file       documentation_file
 call %functions_folder%\variable.bat :create_folder    log_folder
+
+for /f "tokens=1 delims=:" %%s in ("%bigquery_path%") do set bigquery_project=%%s
+for /f "tokens=2 delims=:" %%s in ("%bigquery_path%") do set bigquery_dataset=%%s
+
+call %functions_folder%\variable.bat :check_variable bigquery_project
+call %functions_folder%\variable.bat :check_variable bigquery_dataset
+
+if defined bigquery_service_account_key (
+    call %gcloud_exe% auth activate-service-account --key-file=%bigquery_service_account_key%
+)
 
 goto:eof
 :: =======================================================================================

@@ -62,7 +62,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `run_sql_script`                           | v1.1.1  |
 | `secret`                                   | v1.0.0  |
 | `set_database_file_limits`                 | v1.1.0  |
-| `set_bigquery_dataset_description`         | dev     |
+| `set_bigquery_dataset_description`         | v1.0.0  |
+| `set_bigquery_table_description`           | v1.0.0  |
 | `set_database_owner`                       | v1.0.0  |
 | `shrink_database`                          | v1.0.0  |
 | `split_large_files`                        | v1.0.0  |
@@ -305,6 +306,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### secret
 
 ### set_bigquery_dataset_description
+
+### set_bigquery_table_description
 
 ### set_database_file_limits
 
