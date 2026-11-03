@@ -30,9 +30,10 @@ set file_name_ext=%~nx1
 set bigquery_path=%~2
 set schema_file=%~3
 set schema_file_extension=%~x3
-set log_folder=%~4
+set documentation_file=%~4
+set log_folder=%~5
 
-call :check_variables 4 %*
+call :check_variables 5 %*
 
 if "%schema_file_extension%" == ".tsv" (
     call :generate_json_schema %schema_file%
