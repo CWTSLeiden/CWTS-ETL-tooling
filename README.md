@@ -449,6 +449,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 |-----------------------------------------|------------|
 | 7z.exe                                  | system     |
 | Curl.exe                                | 7.76.1     |
+| cc.exe                                  | 1.0.0.0    |
 | DatabaseDocumentatieGenerator.exe       | 2.1.0.0    |
 | JsonAnalyzer.exe                        | 1.1.0.0    |
 | JsonParser.exe                          | 1.50.0.0   |

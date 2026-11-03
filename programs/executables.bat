@@ -49,6 +49,8 @@ call :set_if_not_defined powershell_7_exe "pwsh.exe -NoProfile -NonInteractive -
 
 call :set_if_not_defined csv_analyzer_exe "%_programs_folder%\CsvAnalyzer\CsvAnalyzer.exe"
 
+call :set_if_not_defined csv_exe "%_programs_folder%\CsvConvert\cc.exe"
+
 call :set_if_not_defined gcloud_exe "gcloud"
 
 call :set_if_not_defined bq_exe "bq.cmd"
