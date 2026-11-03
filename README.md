@@ -200,6 +200,11 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 
 ### export_table
 
+- v2.0.0
+    - Replace Powershell export with CsvConvert export
+        - Output will differ: newlines and tabs stripped, field quotes changed
+    - Add `%export_table_types_only%` global variable
+
 ### extract_noun_phrases
 
 - v1.0.0
