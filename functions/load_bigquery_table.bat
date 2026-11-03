@@ -7,15 +7,12 @@
 ::: bigquery_upload_bucket
 
 :: input variables
-::: 1. input_file:         the tsv file to be loaded
-::: 2. bigquery_path:      the path of the bigquery table (%project%:%dataset%.%table%)
-::: 3. schema_file:        file containing the bigquery schema for the table
-:::                        (either a .json schema file or a .tsv file from which
-:::                        to generate the .json schema file)
-::: 4. documentation_file: file containing the documentation string for the table
-:::                        (if the file does not exist, setting the table description
-:::                        in bigquery is skipped)
-::: 5. log_folder:         log folder for this function
+::: 1. input_file:     the tsv file to be loaded
+::: 2. bigquery_path:  the path of the bigquery table (%project%:%dataset%.%table%)
+::: 3. schema_file:    file containing the bigquery schema for the table
+:::                    (either a .json schema file or a .tsv file from which
+:::                    to generate the .json schema file)
+::: 4. log_folder:     log folder for this function
 ::: https://cloud.google.com/bigquery/docs/schemas#specifying_a_json_schema_file
 
 :: executables
@@ -30,10 +27,9 @@ set file_name_ext=%~nx1
 set bigquery_path=%~2
 set schema_file=%~3
 set schema_file_extension=%~x3
-set documentation_file=%~4
-set log_folder=%~5
+set log_folder=%~4
 
-call :check_variables 5 %*
+call :check_variables 4 %*
 
 if "%schema_file_extension%" == ".tsv" (
     call :generate_json_schema %schema_file%
@@ -56,14 +52,6 @@ call %bq_exe% load ^
     %bigquery_path% ^
     gs://%bigquery_upload_bucket%/%file_name_ext% ^
     %schema_file%
-
-:: Load table description from documentation file
-if exist %documentation_file% (
-    call %functions_folder%\set_bigquery_table_description.bat ^
-        %bigquery_path% ^
-        %documentation_file% ^
-        %log_folder%
-)
 
 :: Cleanup gcloud file
 call %gcloud_exe% storage rm ^
@@ -117,7 +105,6 @@ call %functions_folder%\variable.bat :check_file       input_file
 call %functions_folder%\variable.bat :check_variable   bigquery_path
 call %functions_folder%\variable.bat :check_variable   bigquery_upload_bucket
 call %functions_folder%\variable.bat :check_file       schema_file
-call %functions_folder%\variable.bat :check_variable   documentation_file
 call %functions_folder%\variable.bat :create_folder    log_folder
 call %functions_folder%\variable.bat :create_folder    zip_log_folder
 call %functions_folder%\variable.bat :default_variable load_bigquery_skip_leading_rows 0
