@@ -264,6 +264,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - New required global variable `%bigquery_upload_bucket%`.
     - New global variable `%bigquery_service_account_key%` to use service account for upload.
     - Mssql `datetime`, `datetime2` and `date` types get properly converted to `DATETIME` bigquery type instead of `STRING`
+    - Call set_bigquery_table_description to set table description from documenation file
 
 ### load_database
 
