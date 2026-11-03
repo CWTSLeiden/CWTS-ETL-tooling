@@ -4,7 +4,6 @@
 
 :: global variables
 ::: (optional) bigquery_service_account_key
-::: (optional) bigquery_compress
 ::: bigquery_upload_bucket
 
 :: input variables
