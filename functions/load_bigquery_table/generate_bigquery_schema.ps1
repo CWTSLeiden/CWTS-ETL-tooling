@@ -33,6 +33,9 @@ function ConvertTypeBQ {
         "decimal"        { return "FLOAT64" }
         "float"          { return "FLOAT64" }
         "real"           { return "FLOAT64" }
+        "date"           { return "DATETIME" }
+        "datetime"       { return "DATETIME" }
+        "datetime2"      { return "DATETIME" }
         Default          { return "STRING" }
     }
 }

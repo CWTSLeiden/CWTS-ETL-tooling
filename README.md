@@ -41,7 +41,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `echo`                                     | v1.0.0  |
 | `executables`                              | v1.1.1  |
 | `export_database`                          | v1.0.0  |
-| `export_table`                             | v1.0.0  |
+| `export_table`                             | v2.0.0  |
 | `extract_noun_phrases`                     | v1.0.0  |
 | `folder`                                   | v1.0.7  |
 | `gcloud_login`                             | dev     |
@@ -51,7 +51,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `json_analyze_data`                        | v1.0.0  |
 | `json_parse_data`                          | v1.1.1  |
 | `load_database`                            | v1.0.0  |
-| `load_bigquery_table`                      | v1.0.0  |
+| `load_bigquery_table`                      | v2.0.0  |
 | `log_database_size`                        | dev     |
 | `log_folder_size`                          | dev     |
 | `log_runtime`                              | v0.0.1  |
@@ -257,6 +257,12 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
     - The value of `%erase_previous%` should be set to `erase_previous` instead of `true`
 
 ### load_bigquery_table
+
+- v2.0.0
+    - Split upload and bigquery process steps to work around authentication timeouts on long uploads.
+    - New required global variable `%bigquery_upload_bucket%`.
+    - New global variable `%bigquery_service_account_key%` to use service account for upload.
+    - Mssql `datetime`, `datetime2` and `date` types get properly converted to `DATETIME` bigquery type instead of `STRING`
 
 ### load_database
 
