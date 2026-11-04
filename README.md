@@ -73,7 +73,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `unify_create_tables`                      | v1.0.0  |
 | `unzip_file`                               | v2.1.2  |
 | `unzip_folder`                             | v1.0.0  |
-| `validate_bigquery_dataset`        | v3.0.0  |
+| `validate_bigquery_dataset`                | v3.0.0  |
 | `validate_database`                        | v3.0.0  |
 | `validate_database_compare`                | v1.0.2  |
 | `validate_data_types`                      | v2.0.0  |
