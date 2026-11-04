@@ -92,6 +92,8 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 ### apply_page_compression
 
 ### archive_pipeline
+- v1.1.1
+    - Exclude submodules from size check
 - v1.1.0
     - Fix bug in bulk folder path
 
