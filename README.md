@@ -22,7 +22,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 |--------------------------------------------|---------|
 | `add_extended_properties`                  | v1.0.0  |
 | `apply_page_compression`                   | v1.0.0  |
-| `archive_pipeline`                         | v1.1.0  |
+| `archive_pipeline`                         | v1.1.1  |
 | `aws_download_folder`                      | v1.1.0  |
 | `bcp_data`                                 | v1.0.2  |
 | `citation_matching`                        | dev     |
@@ -34,7 +34,7 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
 | `classification_create_vosviewer_maps`     | v1.0.0  |
 | `classification_load_vosviewer_maps`       | v1.0.0  |
 | `classification_optimize_np_labels`        | v1.0.0  |
-| `clean_pipeline`                           | v1.0.0  |
+| `clean_pipeline`                           | v1.0.1  |
 | `create_database`                          | v3.0.0  |
 | `credentials`                              | v1.0.0  |
 | `curl_download_file`                       | v1.3.0  |
@@ -169,6 +169,9 @@ When writing new pipeline code or ETL-tooling functions, the `functions\variable
         3. `log_folder`: `classification_log_folder`
 
 ### clean_pipeline
+
+- v1.0.1
+    - Add `%data_folder%\export` to cleanup folders
 
 ### create_database
 

@@ -15,6 +15,7 @@ echo WARNING - Deleting the following folders:
 call :check_folder %data_folder%\files
 call :check_folder %data_folder%\json_files
 call :check_folder %data_folder%\xml_files
+call :check_folder %data_folder%\export
 call :check_folder %process_folder%
 
 if not "%continue%" == "true" (
@@ -29,6 +30,7 @@ if "%continue%" == "continue" (
     call :clean_folder %data_folder%\files
     call :clean_folder %data_folder%\json_files
     call :clean_folder %data_folder%\xml_files
+    call :clean_folder %data_folder%\export
     call :clean_folder %process_folder%
 )
 goto:eof
