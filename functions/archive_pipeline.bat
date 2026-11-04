@@ -87,12 +87,7 @@ if %_exclude_submodules% == exclude_submodules (
 
 
 set /a total_size_mb=%folder_size_mb% - %etl_tooling_size_mb% - %backup_tooling_size_mb%
-echo folder_size_mb: %folder_size_mb% Mb
-echo etl_tooling_size_mb: %etl_tooling_size_mb% Mb
-echo backup_tooling_size_mb: %backup_tooling_size_mb% Mb
-echo total_size_mb: %total_size_mb% Mb
 call %functions_folder%\echo.bat :verbose "%total_size_mb% MB"
-pause
 if %total_size_mb% GTR %size_treshold_mb% (
     echo error   - Pipeline remaining files [%total_size_mb% MB] are larger than %size_treshold_mb% MB
     echo Please check for remaining data files. To proceed with archiving, continue.
